@@ -5,5 +5,31 @@
     <link>https://worklab-studio.github.io/x-autopilot-updates/appcast.xml</link>
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
+    <item>
+      <title>v1.0.4</title>
+      <pubDate>Sun, 26 Apr 2026 07:52:11 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>New "Generate Voice Profile" tool</strong> in the Voice Lab tab. Paste 50-100 of your recent tweets → click <em>COPY PROMPT</em> → paste into Claude.ai or ChatGPT → paste the structured profile back → SAVE. Done. Every reply and tweet from that point on is anchored to YOUR actual voice instead of generic patterns.</li>
+      <li><strong>Why this matters:</strong> the #1 complaint after v1.0.1 was "replies feel generic / off-niche". The root cause is users don't know how to articulate their own voice. The 3000-character extraction prompt gets the LLM to produce an extremely specific profile (identity, niche, tone, linguistic patterns, hook patterns, reference tweets, do/don't rules) — far better than what most users would write themselves.</li>
+      <li><strong>Doesn't burn your in-app API budget</strong> — runs externally on Claude.ai or ChatGPT (your choice). One-time onboarding step.</li>
+      <li>The prompt template lives in <code>agent/voice_template.py</code> (version-controlled with the agent) so future tweaks ship via auto-update.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.4/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.4"
+        sparkle:edSignature="3qXQsp90eEonmNaA5J8x0VIhqQcsNvNChnfb+/A8YTzCZytqb8fidRULL4G6KkIhPO/BtkvEaZuHzu18ucNjAg=="
+        arch="arm64"
+        length="62278102"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.4/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.4"
+        sparkle:edSignature="So9Z/GzgLr16mee/AhPWfCAyYn0bLAh2h/PBWCLrh6JCaL46+GFHYakOBbPdhm+iMTtp1uNyGuQpubN2l+u0BA=="
+        arch="x86_64"
+        length="62291492"
+        type="application/octet-stream" />
+    </item>
   </channel>
 </rss>
