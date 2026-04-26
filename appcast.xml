@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>X-Autopilot</title>
+    <link>https://worklab-studio.github.io/x-autopilot-updates/appcast.xml</link>
+    <description>Auto-update feed for X-Autopilot Mac app</description>
+    <language>en</language>
+  </channel>
+</rss>
