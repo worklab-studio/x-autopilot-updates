@@ -6,6 +6,31 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.7</title>
+      <pubDate>Mon, 27 Apr 2026 08:30:51 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Gemini is now clearly marked as the free option.</strong> The provider selector in Settings → API Keys now shows "FREE — no card needed, ~250 replies/day on free tier" next to Gemini, with a green RECOMMENDED badge. Anthropic and OpenAI hints clarify the trial-credit reality so first-time buyers don't accidentally burn $5 in a day.</li>
+      <li><strong>"⚠ HIGH FAIL" badge is now clickable.</strong> Hover shows the tooltip ("follow: 47% fail rate (12 samples) — common cause: stale targets that no longer exist"). Click → confirmation dialog → clears the rolling stats for the elevated endpoint(s). Badge disappears instantly after clear.</li>
+      <li>Cleaner messaging: the badge now reads "⚠ HIGH FAIL: FOLLOW (click to clear)" so the action is discoverable.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.7/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.7"
+        sparkle:edSignature="vIAO1NvjQaIeMnVnymn8zSNsVpvni4yPjxkBZvnSCukSghXCZSDCQ7y71rlHezZvgPVkHTxIcWgYyT5qlzV2Dg=="
+        arch="arm64"
+        length="62315940"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.7/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.7"
+        sparkle:edSignature="AwXmvgphAJkWzJqouxHO3UngAL/52orTh4Pfs6yNrCxMU/a1Qwx+Va1VUJYo7BCrwOvf7t7D2Q7CaIDfaVscAw=="
+        arch="x86_64"
+        length="63589778"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.6</title>
       <pubDate>Mon, 27 Apr 2026 06:13:03 +0000</pubDate>
       <description><![CDATA[
