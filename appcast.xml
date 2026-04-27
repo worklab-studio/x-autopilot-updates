@@ -6,6 +6,31 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.6</title>
+      <pubDate>Mon, 27 Apr 2026 06:13:03 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>"✨ Suggest from my niche" buttons</strong> in Discovery → Hashtags and Discovery → Watchlist. Click → your configured LLM reads your voice profile + niche → returns 8-15 hashtags or 10-15 X accounts active in your space → tick the ones you want → ADD. No more empty-list paralysis after the v1.0.5 cleanup. Cost: ~$0.001-0.005 per click on your own LLM key.</li>
+      <li><strong>Inspiration page now niche-filtered.</strong> The agent's <code>/i/jf/creators/inspiration/top_posts</code> scan was surfacing globally-trending posts (cricket scores, celebrity drama) that had nothing to do with your niche. Now each candidate is scored 0.0-1.0 against your voice profile via a tiny cached LLM call; off-topic tweets are dropped before they reach the reply pipeline. Falls back gracefully to "no filtering" if no voice profile is set.</li>
+      <li>Watchlist suggestions show a one-line "why" for each suggested account so you can decide quickly + a "open profile" link to verify the handle exists before adding (LLMs occasionally hallucinate handles).</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.6/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.6"
+        sparkle:edSignature="WvpXcoYo+wyfQBhRWdlUXQRUHbVqoCTfgKlJ6av3xch7DUJ2pnSYCnPapn40RZYsK69dL10OcURZrWqzmSRDCg=="
+        arch="arm64"
+        length="62315403"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.6/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.6"
+        sparkle:edSignature="xF/Ha6RPh5nSth3nPNiVjUo3AcTA9RAA+qvGFxS1sWHL2IDSdZoBjiaMQsUjbj3xZayoy+ElTEjQQw9OjrUGDg=="
+        arch="x86_64"
+        length="63457950"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.4</title>
       <pubDate>Sun, 26 Apr 2026 07:52:11 +0000</pubDate>
       <description><![CDATA[
