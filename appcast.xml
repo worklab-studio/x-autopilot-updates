@@ -6,6 +6,31 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.10</title>
+      <pubDate>Mon, 27 Apr 2026 12:01:44 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>You can now explicitly allocate session reply budget across discovery sources.</strong> 6 new config knobs in <code>discovery</code>: <code>target_session_share</code>, <code>hashtag_session_share</code>, <code>home_session_share</code>, <code>explore_session_share</code>, <code>inspiration_session_share</code>, <code>high_engagement_session_share</code>. Each is a float 0.0-1.0 — set to 0 to disable a source entirely. Example: 50% hashtags + 30% home + 10% targets + 10% explore + 0% inspiration + 0% high-engagement.</li>
+      <li>The bandit still picks ORDER between active sources but no longer overrides allocation — your per-source shares are honored as hard budget caps.</li>
+      <li><strong>Backwards compatible:</strong> if a share isn't configured, falls back to legacy behavior (40% inspiration, ~10% explore, ~10% high-engagement, hashtag/home capped by <code>max_*_replies_per_session</code>).</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.10/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.10"
+        sparkle:edSignature="Rm7mBcww4jcwH3JmS6XQxBF5N4QjKJZo9wLtCBDCQPFdCzJt7Y5F0uWAysQN7zvgEhhk0Qj8I+gehiXOamUMCg=="
+        arch="arm64"
+        length="62377335"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.10/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.10"
+        sparkle:edSignature="IKX99xcGc6dXzHAagW+rlBtPusMi1wHnms2Urvjh7ivvL8snXUeh3sSAheUfeiH54HptWFNvcNP/s3mz+48rDg=="
+        arch="x86_64"
+        length="63317492"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.9</title>
       <pubDate>Mon, 27 Apr 2026 11:45:13 +0000</pubDate>
       <description><![CDATA[
