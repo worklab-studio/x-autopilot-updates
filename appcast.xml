@@ -6,6 +6,33 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.8</title>
+      <pubDate>Mon, 27 Apr 2026 10:54:04 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Critical fix: auto-update no longer leaves the app dead.</strong> v1.0.0 through v1.0.7 had a bug where clicking <em>Install Now</em> would quit the app but never relaunch it (Launch Services bundle cache wasn't refreshed after the swap, and `open -a path` had ambiguous behavior). Symptom: app quits, dashboard tab dies, dock icon disappears. v1.0.8 uses a detached helper script that waits for the parent to die, refreshes the LS cache via lsregister, and launches by path with no -a flag. <strong>If you got hit by this on a previous version: open Finder → Applications → double-click X-Autopilot.app to recover. The new bundle is on disk; the OS just didn't relaunch it. After this manual fix, v1.0.8's installer will work for all future updates.</strong></li>
+      <li><strong>One-click "Generate from voice profile"</strong> in Settings, above Content Topics. Single LLM call returns niche-appropriate defaults for all 6 content fields (never-say phrases, content topics, voice pillars, signature angles, proof bank, weekly direction). Modal preview with per-field tick + APPEND/OVERWRITE choice. Cost: ~$0.005 on your configured LLM.</li>
+      <li><strong>Auto-post toggle on the Approval Queue page itself</strong> — same toggle that was buried in Settings → Posting, now prominent at the top of the queue.</li>
+      <li><strong>Thread auto-approve fixed.</strong> Single tweets honored require_approval=false from v1.0.4 but threads always went to manual approval. Now threads auto-approve all parts when auto-post is on.</li>
+      <li>Voice Lab editor copy: "Changes take effect immediately, no agent restart needed."</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.8/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.8"
+        sparkle:edSignature="YpJjSe0eSNbU+oywNw+4/k58R7N5Osb1usxz72qB0/yandKruaz6q4eIDsutJmQelsu6Qu0eQ9ZrCdaUQM58Dw=="
+        arch="arm64"
+        length="62505103"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.8/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.8"
+        sparkle:edSignature="pYQppqwPddLpxRn1Sh4GxLAicPIQfAl6LEkGyprzsliwwfffVo6KkH2KgWw4UJIXiGclj//WOdr90EYfqIWTDw=="
+        arch="x86_64"
+        length="62436524"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.7</title>
       <pubDate>Mon, 27 Apr 2026 08:30:51 +0000</pubDate>
       <description><![CDATA[
