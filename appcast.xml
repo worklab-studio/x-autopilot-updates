@@ -6,6 +6,32 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.11</title>
+      <pubDate>Mon, 27 Apr 2026 17:44:41 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Live X-bio context.</strong> The agent now scrapes your own profile (bio, pinned tweet, follower count) once per startup (24h cache) and injects it into every LLM prompt. Result: replies and tweets stop drifting away from your CURRENT positioning — the model knows what your bio says you do, and won't invent contradictory credentials. Cached at <code>data/self_bio.json</code>.</li>
+      <li><strong>Proactive promo discovery.</strong> New reply source <code>promo_discovery</code> (default 10% of session budget). Instead of waiting for product keywords to surface randomly in the home feed, the agent actively searches X for tweets matching each promotion's <code>trigger_keywords</code> with a <code>min_faves</code> filter — so product mentions land on visible, relevant conversations. Still capped by <code>promotions.product_reply_max_per_day</code>. Set <code>discovery.promo_discovery_session_share: 0.0</code> to disable.</li>
+      <li><strong>Auto-suggest watchlist.</strong> Once per day (after 9am, only when watchlist has &lt;10 entries), the agent calls the same LLM-driven suggester as the dashboard's ✨ Suggest button and adds up to 2 new accounts at a long 4hr interval. Voice profile required. Conservative caps + long interval mean even occasional LLM hallucinations cause minimal noise — review/edit suggestions in the Discovery → Watchlist panel.</li>
+      <li>Auto-suggested accounts are logged on add so you can spot them in the dashboard log; they default to a 240-min check interval (vs. user-added 60-min) so they earn their place before consuming budget.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.11/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.11"
+        sparkle:edSignature="l+DCkt+E/V2ooHw6/lmmp5eFCYCtcf6zFdu1+/RZ0hFjQogPCzyvRDDYP7yYmTMA/GdnBDdvmbfd3SmmRwIzCg=="
+        arch="arm64"
+        length="62481293"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.11/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.11"
+        sparkle:edSignature="DGidCAnbHoyJ4bKnPsrUMDhAabFpfWEf4j1tMES5ZgfQqHzdpUv5RwCSgCQ60VA7cZwbkDzh0PMRTeZOQYtLCw=="
+        arch="x86_64"
+        length="63135499"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.10</title>
       <pubDate>Mon, 27 Apr 2026 12:01:44 +0000</pubDate>
       <description><![CDATA[
