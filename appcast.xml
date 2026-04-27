@@ -6,6 +6,30 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.9</title>
+      <pubDate>Mon, 27 Apr 2026 11:45:13 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>CRITICAL: Fixes "Session error — retrying soon" forever loop with 0 actions across the board.</strong> v1.0.0 through v1.0.8 all shipped with a packaging bug — the bundled .app was missing the entire <code>actions/</code> package (reply.py, follow.py, like.py, dm.py, tweet.py, notifications.py). Every session attempt threw <code>ModuleNotFoundError: No module named 'actions.reply'</code>, the agent caught it as a session error, slept 60s, and retried — endlessly. Symptom: dashboard stats stuck at 0 tweets / 0 replies / 0 follows / 0 likes / 0 DMs across the entire day. Fix: PyInstaller spec now uses <code>collect_submodules</code> for actions/, ai/, agent/, and dashboard/ packages so every module the agent lazily imports is bundled. v1.0.9 actually works.</li>
+      <li><strong>If you were on v1.0.0–v1.0.8 with all-zero stats:</strong> install v1.0.9 — the agent will finally start engaging. Manual recovery from a failed install: open Finder → Applications → double-click X-Autopilot.app.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.9/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.9"
+        sparkle:edSignature="HuClZ4pvn6zpYLxPetiVdRgJC1gmj2P4umW573o5ZzAER4Q88WQmmVJy1u2ir9PCqxKM+CE4fUtFSU8usSDyDg=="
+        arch="arm64"
+        length="62376319"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.9/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.9"
+        sparkle:edSignature="hC5vhxUEDCa2UM6apj88uhSD8xPfEfglqwx/2DRFZCGHyx6bDqoeKsdEDN3KSE3Y8sl6uRSAeyOt3U2Y/VPSAQ=="
+        arch="x86_64"
+        length="63316538"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.8</title>
       <pubDate>Mon, 27 Apr 2026 10:54:04 +0000</pubDate>
       <description><![CDATA[
