@@ -6,6 +6,30 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.14</title>
+      <pubDate>Tue, 28 Apr 2026 11:34:59 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Critical fix: replies actually work again.</strong> v1.0.0–v1.0.13 had a latent bug in <code>actions/reply.py</code> where the priority-target fallback path called <code>load_targets()</code> but never imported it. The bug only fired when <code>discovery.priority_watch</code> was empty — which is the default state for every install since v1.0.5 (when the dev-config migration cleared all leaked priority lists). Net effect: every reply session crashed mid-flight with <code>name 'load_targets' is not defined</code>, surfacing in the overlay as "Session error — retrying soon" with replies counter stuck at 0. Other actions (likes, follows, target discovery, watchlist sweep) still worked, which is why the dashboard showed activity but no replies. Fix: one-line import addition. The reply session now completes cleanly.</li>
+      <li>Pairs with v1.0.13's install hardening: when v1.0.13 ships and your auto-update succeeds, you'll land directly on v1.0.14 with replies functional.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.14/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.14"
+        sparkle:edSignature="YaEkuDwi6AxR/6ag38ZencA4xDpDMU3hOheAanoY//bwHGXmgnqguHX+jE3ff/+xLlQl0Bgt7BxvDtO7OIw2CA=="
+        arch="arm64"
+        length="62537125"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.14/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.14"
+        sparkle:edSignature="qsUnjvTtoaR/OUzlYAgNXTVrQ+jF5SmohxXKM8M8i/ewo4OOKCkRrf2/cdqNAtlUY1iWQKCcCWvp8AgpIqm6Cw=="
+        arch="x86_64"
+        length="63121475"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.13</title>
       <pubDate>Tue, 28 Apr 2026 11:18:17 +0000</pubDate>
       <description><![CDATA[
