@@ -92,6 +92,19 @@ echo "⬇  Downloading $DMG_NAME (~60 MB)..."
 curl -fsSL --progress-bar "$DMG_URL" -o "$DMG_TMP"
 echo "✅ Downloaded → $DMG_TMP"
 
+# ── 4b. Clear stale update_status.json ──────────────────────────────
+# v1.0.22+ — without this, the dashboard banner keeps showing the
+# announcement of whatever version was being advertised when the
+# previous background checker last ran (every 24h). The buyer just
+# updated to the latest, so the announcement is stale. Deleting forces
+# the agent's background checker to refetch the appcast on next
+# launch and update_status.json reflects "you are on latest".
+STATUS_FILE="$HOME/Library/Application Support/X-Autopilot/data/update_status.json"
+if [ -f "$STATUS_FILE" ]; then
+    rm -f "$STATUS_FILE"
+    echo "🧹 Cleared stale update banner state"
+fi
+
 # ── 5. Quit any running X-Autopilot ────────────────────────────────
 if pgrep -f "X-Autopilot.app" >/dev/null 2>&1; then
     echo "🛑 Quitting running X-Autopilot processes..."
