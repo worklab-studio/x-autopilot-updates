@@ -6,6 +6,31 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.20</title>
+      <pubDate>Tue, 28 Apr 2026 17:34:37 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Critical fix: clicking INSTALL NOW in the dashboard banner now actually installs the update.</strong> Pre-v1.0.20 (every shipped version v1.0.13–v1.0.19) had a fatal install bug. The flow was: <code>install_dmg()</code> set <code>data/quit_flag</code> to ask the scheduler to drop what it was doing, then waited for Chrome subprocesses to die before swapping the bundle. But <code>quit_flag</code> ALSO triggered main.py's <code>_quit_watcher</code>, which canceled the scheduler task, returned from <code>run_agent()</code>, and exited the entire Python process — including the install_dmg daemon thread that was running inside it. Result: <code>install.log</code> stopped at <code>preflight ok</code>, the swap never happened, and the buyer saw the dashboard spinner with no progress for any length of time. v1.0.13's install_status logging was correctly capturing the issue ("frozen at preflight"), but the bug was downstream of where the dashboard polling looked.</li>
+      <li><strong>Fix:</strong> removed the <code>quit_flag.touch()</code> call from <code>install_dmg</code>. We now rely solely on <code>_kill_bundle_subprocesses()</code> (added v1.0.13) to terminate the Chrome subprocess holding bundle file handles — that path runs in the install daemon thread and doesn't touch main.py's exit logic. Added a 2-second pause after SIGKILL so the OS releases bundle file handles before the rename(2) syscall.</li>
+      <li><strong>For buyers stuck on v1.0.13–v1.0.19:</strong> a one-time manual swap is required to get to v1.0.20. Their data is 100% safe — settings, API keys, voice profile, Twitter login, action history all live in <code>~/Library/Application Support/X-Autopilot/</code> which is completely separate from the .app bundle. Steps: download the v1.0.20 DMG, drag X-Autopilot.app over the existing /Applications/X-Autopilot.app, click Replace. From v1.0.20 onwards, the in-app INSTALL NOW button works correctly so this is the LAST manual swap any buyer ever needs.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.20/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.20"
+        sparkle:edSignature="nwbiEGXjq5Zjy86mL+Ak7cTidr+y1bNhzJZ+em69C3cwmTQgmqDYsTImjZ9EFljvpZOjBFRzyPnsBR5NK6U9BQ=="
+        arch="arm64"
+        length="62523526"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.20/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.20"
+        sparkle:edSignature="/ZcTsKlDGtFmnPeKxptVDAEVWnw2XXgJqv6kEwOd3prSeVZ2PBSrJOU/KGXO0hJeG3sFG0b4Xz3qrXXKOTAoBQ=="
+        arch="x86_64"
+        length="63136045"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.19</title>
       <pubDate>Tue, 28 Apr 2026 17:19:34 +0000</pubDate>
       <description><![CDATA[
