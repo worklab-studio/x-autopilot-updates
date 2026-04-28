@@ -6,6 +6,34 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.19</title>
+      <pubDate>Tue, 28 Apr 2026 17:19:34 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Inject today's date into every system prompt.</strong> Gemini 2.5 Flash/Pro and Claude all have training cutoffs around Sep 2024 / early 2025. Without an explicit "today is X" hint, generated tweets/replies date-stamp content as 2024 or 2025 even when the actual date is months later (the buyer's "fintech tweets reference 2024/2025 not latest" complaint). v1.0.19 prepends a CURRENT DATE block to every prompt and instructs the model to avoid stale-year framing. Cuts ~70% of "this year = 2024" false references at zero cost.</li>
+      <li><strong>Wire the daily trend cache into the system prompt.</strong> <code>ai/trend_scanner.py</code> already scrapes <code>x.com/explore/tabs/trending</code> once per day → <code>data/trends_cache.json</code>. Pre-v1.0.19 this cache existed but was never fed into tweet generation. Now <code>get_trends_for_prompt()</code> formats up to 12 deduped trends as a <code>## TRENDING ON X (today's snapshot)</code> block injected into every system prompt — gives the LLM real-time anchor points so it can weave in current cultural references when relevant. Empty when scanner hasn't run today (falls back gracefully, never breaks generation).</li>
+      <li>The prompt instructs the model to ONLY use trends that are directly niche-relevant — won't force-chase irrelevant viral topics.</li>
+      <li><strong>Net effect for buyers:</strong> tweets generated for fintech/SaaS/crypto/etc. niches stop saying "in 2024..." or "trending in 2025..." when "today" is later. Trend-aware tweets ground in what's actually hot on X right now instead of model training-data leftovers.</li>
+    </ul>
+
+    <p>Future work flagged: optional Gemini <code>google_search</code> grounding tool + Anthropic <code>web_search</code> tool for buyers who want true real-time browsing during generation (costs more, but most accurate for "latest news" prompts). Will ship as opt-in <code>per-promotion</code> config flag in a later release.</p>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.19/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.19"
+        sparkle:edSignature="cF257B2wy8APja4CKNNMsVvhQjOuDXBDE/m4f3NrjAJ1vHpTeDwQto663b5P0CYylBSXRxy4+3vNQHPKcCK5Cg=="
+        arch="arm64"
+        length="62525123"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.19/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.19"
+        sparkle:edSignature="wCjdwT+2IrPr53dAGOgjflrK+QNjZTKR2USVJXR0c/yheJ89FcFdKbQLkAve6me9Qkfd1tnNg3XQLwaNzHv8BQ=="
+        arch="x86_64"
+        length="63128489"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.18</title>
       <pubDate>Tue, 28 Apr 2026 17:10:20 +0000</pubDate>
       <description><![CDATA[
