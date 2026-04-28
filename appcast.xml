@@ -6,6 +6,30 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.18</title>
+      <pubDate>Tue, 28 Apr 2026 17:10:20 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Critical fix: replies + target visits actually work in v1.0.17.</strong> v1.0.17's pinned-tweet skip changed the code path order in <code>run_reply_session</code>, surfacing a long-latent Python scoping bug. A redundant local <code>from agent.status_overlay import set_status</code> inside the voice-readiness branch shadowed the module-level import — so every later <code>await set_status(...)</code> call in the function (target visits, candidate replies, posting) crashed with <code>local variable 'set_status' referenced before assignment</code> whenever the voice-readiness branch didn't execute first (which is the common case once a buyer has set up their voice profile). Symptom: dashboard showed "Session error — retrying soon" overlay loop, target-profile sessions ended immediately, no replies posted. Fix: removed the redundant local import (set_status was already imported at module top). Also cleaned up two other redundant local re-imports of <code>remove_target</code> in <code>get_follower_count</code> + <code>get_profile_snapshot</code> — those weren't crashing today but were one refactor away from the same bug.</li>
+      <li>If you were on v1.0.17 with target-visit sessions failing on every iteration: install v1.0.18 — the agent will resume engaging properly.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.18/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.18"
+        sparkle:edSignature="G0Q0W7IGZJuxMkhjIaYFBBUq/+5vdgX7WAwsO6z41GdxqMclqZ8yFd4wXfsk56PwkbpkQWpN35ahNQAXXcWtDg=="
+        arch="arm64"
+        length="62523507"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.18/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.18"
+        sparkle:edSignature="Ncqh8NrImk4DS4daxHoNu67TJicqnDMkLYszQnPlpAUl0wIieX5ej+/zcsSlOclJw0BH1s6m3mebJgIS8nQzCw=="
+        arch="x86_64"
+        length="63129415"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.17</title>
       <pubDate>Tue, 28 Apr 2026 16:47:19 +0000</pubDate>
       <description><![CDATA[
