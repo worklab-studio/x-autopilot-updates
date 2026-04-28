@@ -6,6 +6,22 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.21</title>
+      <pubDate>Tue, 28 Apr 2026 17:49:27 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li>Identical bytes to v1.0.20 (only the version string changed). Used to validate that v1.0.20's installer fix actually completes the swap when triggered via the in-app INSTALL NOW button. If you upgraded from v1.0.20 → v1.0.21 via the dashboard banner without manual intervention, the install fix works.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.21/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.21"
+        sparkle:edSignature="Lhr1amaQ+tDCmR3v4qZXA1PCOxmCc/leboj1V3Qx6eLkyp3ASl7me4Hl3+yeaCC1BiNe8I2fwxPdrSSEsnGGAw=="
+        arch="arm64"
+        length="62524103"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.20</title>
       <pubDate>Tue, 28 Apr 2026 17:34:37 +0000</pubDate>
       <description><![CDATA[
