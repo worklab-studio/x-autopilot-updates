@@ -6,6 +6,32 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.16</title>
+      <pubDate>Tue, 28 Apr 2026 12:10:13 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Fix #1: <code>400 INVALID_ARGUMENT — Budget 0 is invalid. This model only works in thinking mode.</code></strong> on tweet/reply generation. Google recently changed the Gemini 2.5 Pro API: passing <code>thinking_budget=0</code> (which we used to disable thinking-token consumption of the output budget) now returns a hard 400 error from <code>gemini-2.5-pro</code>. The model now <em>requires</em> thinking mode. Fix: the LLM client now branches on model name. <code>gemini-2.5-flash</code> still uses <code>thinking_budget=0</code> (the original fix for truncated JSON still applies). <code>gemini-2.5-pro</code> uses <code>thinking_budget=128</code> — a small positive budget that satisfies Google's new constraint while keeping cost negligible. 2.0/1.5 models unaffected.</li>
+      <li><strong>Fix #2: stop replying to pinned tweets on profile-page visits.</strong> Watchlist sweeps and target-profile visits were always replying to the user's pinned tweet at the top of the profile DOM, then skipping the actual latest tweet (because of the per-author dedup rule). Pinned tweets are usually months/years old — replies landed at position 800+ in stale threads, zero impressions, looked bot-like, and burned daily reply quota on dead engagement. Fix: <code>_parse_tweet_article()</code> now sets <code>is_pinned=True</code> when it sees the "Pinned" socialContext header, and the watchlist + target-visit code paths pass <code>skip_pinned=True</code> to drop those before reply selection. Other code paths (inspiration page, hashtag search, home feed, explore) are unaffected — those don't surface pinned tweets at the top.</li>
+      <li><strong>Fix #3: stronger pre-follow relevance gate.</strong> Pre-v1.0.16 the agent decided whether to follow a candidate based on a single tweet sample with no bio read — high-variance, prone to false positives (a "crypto trader" who happened to RT one SaaS post would pass). v1.0.16 reads the candidate's bio + 3 latest non-pinned tweets in one profile visit, concatenates them, and scores the union against your voice/niche profile via the existing embedding similarity check. Bios get prepended because they're the densest niche signal per character ("indie hacker, $30k MRR" beats any one tweet). Bait + non-English checks still apply per-tweet. Reduces follow-bot false positives + off-niche follows that were dragging your follower-back rate down.</li>
+      <li><strong>Net effect:</strong> generation works for anyone hitting <code>gemini-2.5-pro</code>; reply quality jumps for watchlist + target-visit paths; follow targeting actually filters by niche relevance instead of trivially passing everyone.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.16/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.16"
+        sparkle:edSignature="vkNJqQXuPHD5zHIIfndCllHHK+kn/OXm6IZy78VdlU73gFJN8OdJMfBBJpVoTo3wPddb2N1OmNIb2fB3dQtQDw=="
+        arch="arm64"
+        length="62530609"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.16/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.16"
+        sparkle:edSignature="wYaOcPixkokAX+ctWpmEvhQUk0OZ4dI3OMAaDHEC6s5AVadOEQxXba/Su9u9pFMthQli2vwpexUQImb7f5V/AA=="
+        arch="x86_64"
+        length="63136666"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.14</title>
       <pubDate>Tue, 28 Apr 2026 11:34:59 +0000</pubDate>
       <description><![CDATA[
