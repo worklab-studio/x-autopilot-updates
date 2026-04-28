@@ -6,6 +6,32 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.22</title>
+      <pubDate>Tue, 28 Apr 2026 18:04:34 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Mount-step hardening.</strong> v1.0.20 fixed the quit_flag-kills-Python bug, but exposed a downstream issue at the DMG mount step. <code>_mount_dmg</code> dropped the <code>-quiet</code> flag (was eating the plist payload on some macOS versions), added defensive cleanup of zombie mounts of the same DMG path before re-attaching (Resource busy errors from prior attempts), increased timeout to 30s, and now logs the actual hdiutil stderr to <code>install_status.json</code> instead of a generic "hdiutil attach error" message.</li>
+      <li><strong>Heartbeat watchdog now skips during installs.</strong> <code>dashboard/server.py</code>'s <code>_heartbeat_watchdog</code> SIGTERMs the entire process if no browser heartbeat for 45s — designed to gracefully shut down when the user closes the dashboard tab. But during an in-app install, the subproc_kill step kills Chrome (which hosts the dashboard tab), the heartbeats stop, and 45s later the watchdog kills the install daemon thread mid-swap. v1.0.22's watchdog checks <code>install_status.json</code> and skips the SIGTERM if a non-terminal install step is in flight.</li>
+      <li><strong>Both arches built</strong> (v1.0.21 was arm64-only due to a build-script SIGTERM during my v1.0.20 debugging). v1.0.22 ships proper arm64 + x86_64 DMGs.</li>
+      <li>If you're using the manual_update.sh one-liner (<code>curl -fsSL https://raw.githubusercontent.com/worklab-studio/x-autopilot-updates/main/manual_update.sh | bash</code>), this release lands cleanly on both architectures.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.22/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.22"
+        sparkle:edSignature="WXXP2eL6RUlB0xsm8+xPlslbui2CbE7lvEmXfXQpYunivSN/U3w7e8+Aqi6S+cpqNlxfEKJWAtwAUY1U1o9wDg=="
+        arch="arm64"
+        length="62585390"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.22/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.22"
+        sparkle:edSignature="3c4lEZ/h+W/D66YxligNEdSrew+U2q7vqpOIp/gX3P8A1n1+20bi2aWxHEJC0gyFtYpBLVXt67TU3TEHW94dAg=="
+        arch="x86_64"
+        length="63131182"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.21</title>
       <pubDate>Tue, 28 Apr 2026 17:49:27 +0000</pubDate>
       <description><![CDATA[
