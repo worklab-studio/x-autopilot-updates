@@ -60,10 +60,11 @@ echo "📐 Detected: $ARCH → will download $DMG_NAME"
 
 # ── 2. Find latest release tag ─────────────────────────────────────
 echo "🌐 Fetching latest release tag from GitHub..."
+# Use python3 (always present on macOS 10.15+) to parse JSON safely.
+# macOS grep/sed don't support \s — earlier regex approach broke parsing.
 LATEST_TAG=$(curl -fsSL "https://api.github.com/repos/$REPO/releases/latest" \
-    | grep -o '"tag_name":\s*"[^"]*' \
-    | head -1 \
-    | sed 's/.*"tag_name":\s*"//')
+    | /usr/bin/python3 -c "import sys, json; print(json.load(sys.stdin).get('tag_name', ''))" \
+    2>/dev/null || true)
 if [ -z "$LATEST_TAG" ]; then
     echo "❌ Could not fetch latest release tag from GitHub."
     echo "   Check your internet connection or try again in a minute."
