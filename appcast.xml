@@ -6,6 +6,35 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.17</title>
+      <pubDate>Tue, 28 Apr 2026 16:47:19 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>TURBO mode now actually delivers throughput.</strong> Pre-v1.0.17 TURBO only changed session pacing (shorter gaps, no breaks) but left daily limits untouched. A buyer on <code>intensity: moderate</code> who clicked TURBO got fast pacing but only moderate's 45-reply ceiling — ran out of budget by mid-day, then turbo kept looping with empty bursts (the "Turbo: next in X seconds again and again with no actions" symptom). v1.0.17 floors daily limits at the aggressive preset (500 replies / 300 likes / 120 follows) whenever <code>turbo_mode: true</code>, regardless of chosen intensity. Sprint preset already > aggressive so its limits are preserved. Effective intensity is logged as e.g. <code>moderate+turbo</code> for visibility.</li>
+      <li><strong>Sprint preset fixed.</strong> Was 80 replies / 100 likes / 25 follows — LOWER than aggressive (500/300/120). Long-standing bug: sprint is meant to be max-effort but was misconfigured below aggressive. Now 600/400/150 (above aggressive). Anyone who explicitly opted into sprint mode was getting less throughput than aggressive — no more.</li>
+      <li><strong>Better defaults that don't no-op on fresh installs.</strong> Pre-v1.0.17 default reply-source allocation was 40% hashtags / 30% home / 10% explore / 0% inspiration. New buyers (empty hashtags list) saw 40% of every session no-op. v1.0.17 defaults: 40% home + 20% explore + 20% inspiration + 10% hashtags + 5% high-engagement + 5% target. The first 80% works without any user config; hashtag/target/promo only kick in when the buyer configures them.</li>
+      <li><strong>Higher per-session caps + scan depth.</strong> <code>max_hashtag_replies_per_session</code> 50→100, <code>max_home_replies_per_session</code> 35→60, <code>max_hashtag_tweets_scanned</code> 60→100, <code>max_home_tweets_scanned</code> 120→150. Each session burns more of the daily reply budget — 500 replies/day cap reachable in 5-7 sessions instead of 10-15.</li>
+      <li><strong>Tighter session gaps.</strong> Aggressive preset 10-20 min → 8-15 min, moderate 60-120 min → 45-90 min. ~8-9 sessions per day on aggressive vs current ~5-6. Hashtags + home + explore get re-scanned 2-3× more often per day.</li>
+      <li><strong>Moderate preset bumped</strong> (45/15/55 → 100/30/150) so buyers without a growth goal also get sensible throughput. With growth_goal enabled, this is the no-data starting point that escalates to aggressive.</li>
+      <li><strong>Net effect for a TURBO+aggressive buyer:</strong> sessions now run every 8-15 min, each session can do 100+ replies, daily ceiling actually achievable in practice. The "TURBO loop with no actions" complaint goes away when sources have candidates.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.17/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.17"
+        sparkle:edSignature="TVY479ur8rA/fRj5roU3DZRQ8detYnnZH0OTcdYRGHb8qTsSMim8ZNS3AEp1KiJOjJpTvtiANYpWdOakDPdfDw=="
+        arch="arm64"
+        length="62523800"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.17/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.17"
+        sparkle:edSignature="5x0kZbQQo39FCN10GqCSFj3DtKwh10ROT8lIFW0xdDYfFZ48DqYtmkV+tXLVoNG2pB61yzZIOqhAIERW3BCQCQ=="
+        arch="x86_64"
+        length="63131620"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.16</title>
       <pubDate>Tue, 28 Apr 2026 12:10:13 +0000</pubDate>
       <description><![CDATA[
