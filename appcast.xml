@@ -6,6 +6,33 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.12</title>
+      <pubDate>Tue, 28 Apr 2026 08:15:58 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>The DM (direct message) feature has been completely removed.</strong> X's API and UI have made automated DM sending the #1 trigger for account warnings and rate-limit penalties — the cost-to-benefit was upside-down for every buyer. The agent now focuses on what works without DM risk: replies, tweets, threads, likes, follows, unfollows, and welcome-via-likes for new followers.</li>
+      <li>What got deleted: the entire <code>actions/dm.py</code> module, all DM generators (<code>generate_dm_opener</code>, <code>generate_dm_welcome</code>, <code>generate_dm_reply</code>), the DM session in the afternoon scheduler, the DM follow-up flagging during replies, and all DM-related dashboard UI (Daily DMs input, per-tier "DM after engagement" toggles, "DM from hashtag/home" toggles, "Never DM verified accounts" safety toggle, the DMs stat box).</li>
+      <li><strong>Welcome flow for new followers preserved — but silent.</strong> When you gain a follower, the agent still likes 3-4 of their posts as a friendly nod. It just doesn't send a "thanks for the follow!" DM (which X increasingly treats as spam regardless of voice quality).</li>
+      <li>Config keys removed: <code>engagement.daily_dms</code>, per-tier <code>dm_after_engagement</code> / <code>dm_delay_min_minutes</code> / <code>dm_delay_max_minutes</code>, <code>discovery.dm_from_hashtags</code>, <code>discovery.dm_from_home_feed</code>, <code>safety.never_dm_verified_accounts</code>. Existing keys in your config.yaml are ignored and harmless — leave them or remove on next edit.</li>
+      <li>The legacy <code>dm_conversations</code> SQLite table is preserved (CREATE IF NOT EXISTS) so any historical data on existing installs is not lost. No code writes to it anymore. Drop it manually if you want a clean DB.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.12/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.12"
+        sparkle:edSignature="Hfa8fe3cgIucK5oJl39mBJl3niCYnjALLBnQGVA0GhAxeVxjYiy2UlkqXUdqufc5idFBdZ6ziNkP9MfUoSw+DQ=="
+        arch="arm64"
+        length="62524293"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.12/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.12"
+        sparkle:edSignature="HoLyFk73qEA1iBX1/ijJu5hvgJb771JXWRh85CFumU2hszBySTGJM/+BE5oXmsLVJ/wmDPW6r/JGGvP5bwJmBg=="
+        arch="x86_64"
+        length="63188976"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.11</title>
       <pubDate>Mon, 27 Apr 2026 17:44:41 +0000</pubDate>
       <description><![CDATA[
