@@ -6,6 +6,34 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.13</title>
+      <pubDate>Tue, 28 Apr 2026 11:18:17 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>CRITICAL: auto-update install no longer fails silently.</strong> v1.0.0–v1.0.12 had a bug where clicking <em>INSTALL NOW</em> would download the DMG, verify the signature, but then silently fail at the file-swap step (Chrome subprocess holding open file handles inside the bundle blocked the rename of <code>/Applications/X-Autopilot.app</code>). The dashboard wrapped the whole install in <code>except: pass</code> so the error vanished — users saw "spin → restart" then nothing happened. Recovery required manually swapping the .app via Finder. v1.0.13 fixes this comprehensively.</li>
+      <li><strong>Pre-swap subprocess cleanup.</strong> Before attempting the bundle rename, the installer now pkills any process whose command line includes the bundle path (catches Playwright's Chrome subprocess holding <code>Frameworks/playwright/driver/node</code>). SIGTERM first, then SIGKILL after 1.5s if anything's still alive. Never kills the parent install thread.</li>
+      <li><strong>Structured install logging.</strong> Every step (preflight, subproc_kill, mount, ditto_copy, swap, relaunch_helper, done) writes a JSON record to <code>data/install_status.json</code> + a human-readable line to <code>data/install.log</code>. New endpoint <code>/api/updates/install_status</code> exposes the latest record so the dashboard modal shows real progress instead of a generic spinner.</li>
+      <li><strong>/tmp staging fallback.</strong> If <code>ditto</code> into <code>/Applications/.X-Autopilot.app.new</code> fails (managed Macs, weird perms, MDM), the installer falls back to staging in <code>/tmp</code> and uses <code>mv -f</code> for the cross-volume final swap.</li>
+      <li><strong>Dashboard modal shows real failures.</strong> The update banner now polls <code>/api/updates/install_status</code> every 1.5s during install. On <code>status: "failed"</code> the modal renders the verbatim error message (e.g. "Swap failed: PermissionError [Errno 1] /Applications/X-Autopilot.app") plus a clickable "Manual recovery: download the latest DMG → drag X-Autopilot.app over the existing one in /Applications" link.</li>
+      <li><strong>Net effect for buyers:</strong> v1.0.13 → v1.0.14 (and onwards) updates will succeed where v1.0.12 silently failed. If they ever do fail, the user sees exactly why and what to do — no more silent spinners or "open Finder → drag DMG manually" support tickets.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.13/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.13"
+        sparkle:edSignature="sqY2NwfXWljqFcesVAUp5KYQ2mz9bNtg4scunAMyuk2BCoz0hp5g4xcLXRAruvD4/bbeSGp/2yIlJGD7p4DhDw=="
+        arch="arm64"
+        length="62537416"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.13/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.13"
+        sparkle:edSignature="DKpW74VaCs/zIBNuCiaElghHCNKmNkpLNOZQ7ZlVIYOb/aw4iXbzsV4owJJnPaEi1VW1wUDnAJPA7SaL06jqBw=="
+        arch="x86_64"
+        length="63122360"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.12</title>
       <pubDate>Tue, 28 Apr 2026 08:15:58 +0000</pubDate>
       <description><![CDATA[
