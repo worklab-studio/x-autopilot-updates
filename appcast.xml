@@ -6,6 +6,34 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.23</title>
+      <pubDate>Wed, 29 Apr 2026 02:58:26 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Per-action delay defaults cut from 8-20s → 3-10s.</strong> Pre-v1.0.23 buyers complained "agent only does ~5 replies/hr in turbo+aggressive — too slow". The 8-20s sleep between actions was the dominant time sink (LLM gen + browser interaction = ~10s, sleep = ~14s avg = 24s total per reply → 150/hr theoretical, 5/hr observed). New defaults of 3-10s drop per-action delay 60% while keeping randomness in the human range.</li>
+      <li><strong>Aggressive preset session gaps tightened: 8-15 min → 3-8 min.</strong> Roughly 2× more sessions per day, each session burns more of the daily reply budget. Sprint gaps tightened further (8-15 → 2-6 min) since sprint is meant as max-effort.</li>
+      <li><strong>Aggressive preset ceiling bumped: 500→800 replies, 300→500 likes.</strong> Sprint preset bumped: 600→1000 replies, 400→600 likes. Buyers actually hit the daily cap on long sessions instead of stalling at ~60 replies.</li>
+      <li><strong>TURBO mode adds an additional 0.5× multiplier on every <code>human_delay</code> call.</strong> Compounds with the per-action delay reduction — turbo+aggressive effective inter-action delay drops to ~1.5-5s (vs 8-20s pre-v1.0.23). Buyers worried about bot detection can toggle TURBO off in the dashboard to restore conservative pacing.</li>
+      <li><strong>Net throughput projection</strong> for turbo+aggressive over 12 hours: ~150-300 replies (vs 50-60 pre-v1.0.23). Account-health watcher (v1.0.13) and rate-limit cooldown (v1.0.0) remain the safety net — if X surfaces a "Your account is limited" warning or rate-limit toast, the agent auto-pauses.</li>
+      <li>Also includes the JSHandle parser bugfix that was occasionally surfacing as <code>Session error: 'JSHandle' object has no attribute 'get_attribute'</code> on tweets with unusual DOM structures.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.23/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.23"
+        sparkle:edSignature="XGN30NhUqLHlnZys2MeWxeWDaq3BETC8PQmpMN11Pu6d/KP8K/q07uptBqVX4j6+I2Rigo/13NDZnyRkEsAEBw=="
+        arch="arm64"
+        length="62592992"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.23/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.23"
+        sparkle:edSignature="jRVMeHgYrGqAPinQzlnKz54gPQp/6pYtqyt3UeHmchCofU9hngwbe8HKEznzjxqukOEymPD/Wde1cPqqle+SBg=="
+        arch="x86_64"
+        length="63138216"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.22</title>
       <pubDate>Tue, 28 Apr 2026 18:04:34 +0000</pubDate>
       <description><![CDATA[
