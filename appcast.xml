@@ -6,6 +6,33 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.27</title>
+      <pubDate>Wed, 29 Apr 2026 12:26:03 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Native thread composer (v1.0.25 fix #2 — Part 2 no longer drops).</strong> The v1.0.25 release switched threads to X's native multi-tweet composer, but had two follow-on bugs: (1) the addButton click happened too fast, X's modal hadn't rendered the new textarea yet, fallback grabbed the wrong textarea, Part 2 silently dropped; (2) element handles went stale during X's modal re-renders, causing "Element is not attached to the DOM" errors. v1.0.27 hardens with: longer waits between parts, removal of the unsafe boxes[-1] fallback, force-trigger React state via space-then-backspace if "+" doesn't appear, page.click(selector) instead of handle-based click for staleness safety, page.evaluate(selector) for textarea text reads.</li>
+      <li><strong>Daily caps actually use growth_optimizer + turbo floor (4× throughput fix).</strong> Pre-v1.0.27 the aggressive preset (800 replies / 120 follows / 500 likes) and turbo floor only flowed through the scheduler's max_replies parameter — every action function called load_config() independently and saw the RAW config (e.g. 200/55/15) which then got further reduced by autonomy×0.75 to ~150/41/11. So buyers running aggressive+turbo were actually capped at ~150 replies/day instead of the intended 800. Fix: load_config_with_dynamic now applies growth_optimizer + turbo floor BEFORE jitter + autonomy. All config readers see the optimized values automatically. For the same buyer config, effective caps jump from ~150/41/11 to ~600/300/80 per day.</li>
+      <li><strong>Heartbeat watchdog no longer kills the agent overnight.</strong> Pre-v1.0.27 the dashboard's _heartbeat_watchdog SIGTERM'd the entire agent process if no browser heartbeat for 45s — designed for "user closes tab → quit", but for buyers leaving their MacBook closed overnight, Chrome paused → no heartbeats → 45s later the agent died and didn't restart. v1.0.27 changes: timeout 45s → 30 min (survives Mac sleep, Chrome auto-updates, network blips), and default OFF (24/7 by default). Buyers who want close-tab-quits-agent can opt in via Settings → UI → "Auto-quit when dashboard tab is closed" toggle.</li>
+      <li><strong>Web search grounding for fresh-data tweets/threads.</strong> New "🌐 WEB SEARCH" toggle in the Write from Prompt UI. When ON, the LLM gets access to Gemini's google_search tool (free, included with Gemini API) or Anthropic's web_search_20250305 tool (~$10/1k searches). Use for: earnings reports, breaking news, latest model releases — anything where the LLM's training cutoff (~Sep 2024) bites. Per-prompt opt-in (no cost when off). Adds ~1-2s latency per tweet. Pairs with v1.0.19's date injection + trend cache for full real-time awareness.</li>
+      <li>Bonus: skip_pinned=True now in the URL fallback used by _post_thread (fixes the carry-over bug where Part 1's URL got assigned the user's pinned tweet URL when DOM was stale).</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.27/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.27"
+        sparkle:edSignature="UeQwVQEWW4hSEDz/yQJhaiVd6hd5qk0tWIWTpM5jI+IAut1RyAdlOLbUjU23YczyRQuPVizsEsS+tQJwGiEpAA=="
+        arch="arm64"
+        length="62509414"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.27/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.27"
+        sparkle:edSignature="GWrGHuKHhv+4Tp+ThERCfw3OXgfyhH0EstY8dZmH+iuWUfiUhgvDUtsS2b8tpWT4/8xvhf0WHJey4w3GeQGJDA=="
+        arch="x86_64"
+        length="63191773"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.25</title>
       <pubDate>Wed, 29 Apr 2026 10:09:27 +0000</pubDate>
       <description><![CDATA[
