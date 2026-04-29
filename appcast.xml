@@ -6,6 +6,29 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.29</title>
+      <pubDate>Wed, 29 Apr 2026 19:17:43 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li>Identical bytes to v1.0.28, version-bumped to validate that the in-app INSTALL NOW button now actually completes the install on a running v1.0.28+ install. If you upgraded from v1.0.28 → v1.0.29 via the dashboard banner without manual intervention, the install pipeline is fully working.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.29/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.29"
+        sparkle:edSignature="rejUE4Y8oTQ7oR1h85mqf+J+eOz7elRNnTiM6dQdez2Hf+IJZUv8FRJn3RsDInEIhBMOCFAtdJ2c0fVGIFyHBQ=="
+        arch="arm64"
+        length="62513541"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.29/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.29"
+        sparkle:edSignature="5maPnvaPZHT2VIN7QNnbRjAQexfjRIu1OVFOQkYvKNjx3yEG9Si6+AVGuDHazok1uRWxsfy3twDv14FR+KZrCA=="
+        arch="x86_64"
+        length="63198312"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.28</title>
       <pubDate>Wed, 29 Apr 2026 13:43:58 +0000</pubDate>
       <description><![CDATA[
