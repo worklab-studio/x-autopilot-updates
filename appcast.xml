@@ -6,6 +6,31 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.28</title>
+      <pubDate>Wed, 29 Apr 2026 13:43:58 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Critical brand-safety fix.</strong> When the agent encountered sensitive content (news, mugshots, politics, anything outside the buyer's niche), the LLM (Gemini/Claude) sometimes outputted a meta-commentary REFUSAL instead of declining cleanly — and the old reply pipeline POSTED that refusal AS the reply. Buyers ended up posting things like "An account focused on finance should not engage with this topic. It's inflammatory and brand-damaging. I will abstain from generating replies." That's a 100% AI-leak — screams "this account is automated".</li>
+      <li><strong>Fix:</strong> new <code>_is_llm_refusal()</code> detector matches against ~30 self-reference / refusal / meta-commentary phrases ("I will abstain", "should not engage", "as an AI assistant", "the user's voice profile", "would be brand-damaging", etc). When detected, the reply is skipped and the agent moves on to the next candidate. Inserted at all 3 reply-validation sites (main reply session, target-visit, thread-response).</li>
+      <li>Conservative tuning — false positives (skip a legit reply) are 1000× cheaper than false negatives (post embarrassing bot reply). 10/10 test cases pass: catches refusals, doesn't trigger on legit AI-topic content like "as an AI engineer working on RAG".</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.28/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.28"
+        sparkle:edSignature="3hmL3GgNnLziqXbzmyEjhW3Qg2CRLtcRQP3m4tmOMaD3m5MTfRvHKcQDxE2cxX2PBbqeOdkagu02RG8K5libDw=="
+        arch="arm64"
+        length="62513807"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.28/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.28"
+        sparkle:edSignature="TrsfiTkZkpGq/bWFx4xS6m4UHP7eGOmYqnpDWeXHg+VkG4uxz4FxcqJeEqLLVuBV21OvqejAxBq3awuLoZdCCQ=="
+        arch="x86_64"
+        length="63197352"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.27</title>
       <pubDate>Wed, 29 Apr 2026 12:26:03 +0000</pubDate>
       <description><![CDATA[
