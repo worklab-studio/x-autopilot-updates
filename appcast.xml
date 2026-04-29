@@ -6,6 +6,32 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.25</title>
+      <pubDate>Wed, 29 Apr 2026 10:09:27 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Threads now use X's native multi-tweet composer instead of posting parts one-by-one and chaining them via reply.</strong> Pre-v1.0.25, the agent posted Part 1 as a standalone tweet, then replied to Part 1 with Part 2, then replied to Part 2 with Part 3, etc. — capturing each part's URL between submissions to use as the next reply target. This had three failure modes: (1) URL capture race conditions when Twitter's profile DOM lagged behind freshly-posted tweets, (2) the v1.0.24-fixed pinned-tweet bug where fallback returned the user's pinned tweet URL → all subsequent parts landed as comments on the pin, and (3) visible 30-60s gaps between parts that someone could reply into and break the chain visually.</li>
+      <li><strong>The new flow opens the compose modal once, types Part 1, clicks the "+" button to add another tweet box, types Part 2, repeats for all parts, then clicks "Post all" — exactly what a human does when manually composing a thread.</strong> X publishes all parts atomically as a real connected thread, in order, with no inter-part gaps and zero risk of chain breaks.</li>
+      <li><strong>URL capture also gets safer:</strong> after the atomic post, the agent visits the user's profile and grabs the top N non-pinned tweets (newest-first, then reversed to align with [Part 1 ... Part N]). All N parts are visible together, no per-part DOM lag.</li>
+      <li>Net effect: threads are cleaner, faster (single submission instead of N submissions), and reliably chained. The "thread parts going to pinned" complaint and the v1.0.24 follow-up "Part 3 URL captured wrong" issue are both structurally eliminated by switching to native threading.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.25/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.25"
+        sparkle:edSignature="o9IewjKdp0B6MGIkgxEeVoGrNlza4q12gOvADp0Rf4WytUBo9x/6+IeyTuPHJERM+gBZBoN8g0JSLCo7izDlBQ=="
+        arch="arm64"
+        length="62508125"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.25/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.25"
+        sparkle:edSignature="QBWYlw7FrJNeKqR2k2xl2Ftn29TO1XdBSf1q0Df10NqzT/BmQk/71JkXbSeQhoL9ubfYxZcOrEbMwzUbRxESBw=="
+        arch="x86_64"
+        length="63190413"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.24</title>
       <pubDate>Wed, 29 Apr 2026 09:23:35 +0000</pubDate>
       <description><![CDATA[
