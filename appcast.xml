@@ -6,6 +6,33 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.30</title>
+      <pubDate>Thu, 30 Apr 2026 11:25:10 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>New feature: agent reposts relevant tweets WITH a short commentary in your voice (X's native Repost → Quote).</strong> Default ON. Settings → Engagement Limits → toggle off to disable. Up to 5 quote-tweets per day (configurable). Filters: only tweets with >= 20 likes (configurable), only from non-pinned content, never your own posts, never duplicate the same source twice in a day.</li>
+      <li>Pulls candidates from the Inspiration page "most_likes" tab (highest niche signal). Generates a short, on-voice endorsement/extension via the existing voice-profile + bio + trends + writing-guide system prompt. Refusal detector (v1.0.28) applies — if LLM tries to output meta-commentary instead of a real quote, the candidate is skipped.</li>
+      <li>Browser flow: visits source tweet → clicks Repost icon → clicks "Quote" menu item → types commentary in compose modal → clicks Post. Single navigation per quote, no link to your pinned tweet (uses the v1.0.16 pinned-skip helper).</li>
+      <li>New action_type="quote_tweet" in the actions table; daily counter independent of replies/likes/follows.</li>
+      <li>Quote_tweets runs FIRST in each session (morning/afternoon/evening) before any other action — ensures it always gets a turn, since the replies step under aggressive+turbo can run 20-30 min and otherwise eats the whole session.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.30/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.30"
+        sparkle:edSignature="psrmjtYYUf8qg3yGWnaIyoNLShgTFQIFuCg34tvF4A9Mavcnic3uUVj63G1AytoLVdxvzV2k+y2Io3gdrWzRDQ=="
+        arch="arm64"
+        length="62515349"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.30/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.30"
+        sparkle:edSignature="u2+iP5PnAmaieHmaLNP6FxybnDro5eNc8GmNvvMG5CWXCnNlQhh/G6xnSpgoO7YBLP5KXoUgtFqdnrg37GTRAg=="
+        arch="x86_64"
+        length="63216479"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.29</title>
       <pubDate>Wed, 29 Apr 2026 19:17:43 +0000</pubDate>
       <description><![CDATA[
