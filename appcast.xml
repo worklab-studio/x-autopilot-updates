@@ -6,6 +6,32 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v1.0.31</title>
+      <pubDate>Thu, 30 Apr 2026 14:06:03 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Quote-tweet commentary now grounds in fresh web data by default.</strong> Before v1.0.31, the agent's quote-tweet commentary was limited to the LLM's training cutoff (~Sep 2024) — fine for evergreen takes but vague on anything time-sensitive. v1.0.31 wires Gemini's google_search (free) / Anthropic's web_search_20250305 (~$0.01/call) directly into <code>generate_quote_commentary()</code>, so the model can pull live prices, latest filings, breaking headlines, recent scores BEFORE writing the take. Critical for finance, sports, and news niches; harmless otherwise.</li>
+      <li>Default ON. Capped at 5 quote-tweets/day, so worst-case extra cost on Anthropic is ~$0.05/day. On Gemini (default provider), grounding is free. Latency add: ~1-2s per quote.</li>
+      <li>New toggle: Settings → Engagement Limits → "Ground commentary in fresh web data". Disable if you want offline commentary or are fully cost-paranoid.</li>
+      <li>The model is instructed to cite ONE concrete fresh fact (a number, date, name) when grounding is on, and to skip vague references like "recent news" — keeps the takes specific without padding.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.31/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="1.0.31"
+        sparkle:edSignature="d7+/EGWhWUDKMYUw3Aq7B7FZUrBIvtsUwD58HDlgIVUzErQGXy2euXgdlLH7AVaS7OBH+dSLD/NsbogWE6q0AA=="
+        arch="arm64"
+        length="62513092"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v1.0.31/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="1.0.31"
+        sparkle:edSignature="JrblYQSol0T5pw93Mbypi3K9BvocIjwcnYRh73ktVkYHBfWMPNd387cq6zVvmy0uNrjLA7RUXpzKxfNExpSGAQ=="
+        arch="x86_64"
+        length="63218036"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.30</title>
       <pubDate>Thu, 30 Apr 2026 11:25:10 +0000</pubDate>
       <description><![CDATA[
