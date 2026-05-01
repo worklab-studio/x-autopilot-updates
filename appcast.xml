@@ -6,6 +6,35 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.0</title>
+      <pubDate>Fri, 01 May 2026 17:13:40 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Existing buyers: you get FREE Pro tier forever (Founder grant). Auto-detected — no action needed.</strong> Just upgrade and the agent picks up your lifetime Pro license automatically. Cloud LLM is included; you can delete your Gemini/Anthropic API keys from <code>.env</code> if you want.</li>
+      <li><strong>New paid SaaS pricing:</strong> 7-day free trial → Starter $19/mo (250k tokens, 200 actions/day) or Pro $39/mo (1M tokens, 800 actions/day). Subscriptions handled by Lemon Squeezy as Merchant of Record — they invoice from their entity and handle every tax jurisdiction worldwide. <strong>Your Founder grant is unaffected.</strong></li>
+      <li><strong>Cloud-bundled LLM</strong> — your tweet/reply/thread generation now routes through <code>api.xautopilot.app</code> using bulk-tier Gemini 2.5 Flash. Zero buyer-side API key configuration. Per-tier monthly cap; admin dashboard tracks usage. (Buyers who insist on BYOK can stay on v1.0.x — Founder tier here in v2.0 is the simpler path.)</li>
+      <li><strong>Anonymous telemetry</strong> — agent pings cloud on launch + every 12hr with install_id + version + daily action count. <strong>No tweet content, no email, no IP-as-id, no Twitter session info ever leaves your Mac.</strong> Your cookies, voice profile, action history, and browser fingerprint stay 100% local. The cloud only handles billing, license, and the LLM proxy.</li>
+      <li><strong>Onboarding wizard</strong> — first launch shows the SubscriptionGate. Existing v1.0.x buyers see "Welcome back, Founder" and click one button. New buyers enter email, get a magic link, click it, agent activates within seconds.</li>
+      <li><strong>7-day offline grace</strong> — if cloud is unreachable, agent runs from cached license token for 7 full days before pausing. No bricked agents on flaky networks.</li>
+      <li><strong>Carries forward all v1.0.31 features</strong> — quote-tweet with web-search grounding, growth optimizer, voice profile, attribution loop, dashboard. Nothing was removed. Browser stack (real Chrome on residential IP) is unchanged — that's the moat, we keep it.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.0/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.0"
+        sparkle:edSignature="Sgd6yBept2s0fat46k+Eu+xz46lMJgNXhyrLtWf08BVyFOxA+tV5lDI1zO2tSOEx7HnHk9ywq1cVR9kwyqtFBg=="
+        arch="arm64"
+        length="62529420"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.0/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.0"
+        sparkle:edSignature="ZUF6DywxvWR0UluUexpqidC4zPlp4qHbACQt05uY/UQpEgFNld3qAuD+2m+A09hXq0tj+MqGuDnl6VuOITf+DQ=="
+        arch="x86_64"
+        length="63177746"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v1.0.31</title>
       <pubDate>Thu, 30 Apr 2026 14:06:03 +0000</pubDate>
       <description><![CDATA[
