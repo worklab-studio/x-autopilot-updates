@@ -6,6 +6,36 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.1</title>
+      <pubDate>Fri, 01 May 2026 19:22:00 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>New buyers can now subscribe.</strong> v2.0 only had signup + trial — when the trial ended, buyers hit a wall with no way to pay. v2.0.1 closes the loop: trial-expired modal with Starter/Pro buttons → opens Lemon Squeezy hosted checkout in browser → after payment, agent activates within seconds via webhook + status polling. Same flow applies to resubscription after cancellation.</li>
+      <li><strong>Payment-failed modal.</strong> When a monthly renewal card declines (Lemon's <code>past_due</code> webhook), the dashboard shows a red "Update payment method" banner with one-click access to the Lemon customer portal. Card update → Lemon retries → access restored. Founder tier never sees this.</li>
+      <li><strong>Customer portal link.</strong> New "Update payment method / Cancel / Change plan" path via Lemon's hosted portal — no in-app forms, Lemon handles all the UX. Endpoint: <code>GET /v1/customer/portal-url</code>.</li>
+      <li><strong>Cancellation grace period (bug fix).</strong> v2.0 yanked tier access immediately when a buyer cancelled, even though they'd paid for the current month. v2.0.1 keeps tier active until the period ends, shows a yellow "Subscription ending Mon DD" banner with a Resubscribe button.</li>
+      <li><strong>Token-cap graceful degradation.</strong> When monthly LLM tokens run out (Starter 250k, Pro 1M), the agent now gracefully pauses replies/tweets but continues likes/follows. Dashboard shows a red banner with reset date and "Upgrade to Pro" CTA (for Starter buyers). Cloud LLM proxy returns a structured 429 with reset_at + upgrade_to fields.</li>
+      <li><strong>Trial countdown banner.</strong> In the last 3 days of trial, dashboard shows "Trial ends in N days" with Starter/Pro buttons inline. No interruption — gentle nudge until day 7.</li>
+      <li><strong>Server-derived access state.</strong> <code>/v1/auth/me</code> now returns an <code>access_state</code> field (active / trial / trial_expired / past_due / cancelled_grace / cancelled_expired) so the Mac SubscriptionGate switches on a single string instead of replicating date logic. Cleaner, less drift.</li>
+      <li><strong>Founder tier unaffected.</strong> Existing $99 buyers still see "active" state, no banners, no modals, no payment requests. Forever.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.1/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.1"
+        sparkle:edSignature="rbwLjvx0UszCf5e6hhb+iSwo46xNLnAMfu4IQdEotb0nfiS75iuxJVymVud3Ji26/SE+wVUIaP4Z7HAFP0mHCA=="
+        arch="arm64"
+        length="62546610"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.1/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.1"
+        sparkle:edSignature="339sKZbaDyLQdYjJ986OdoPGKX94EFfL2DzDRQ6aye+YVjiDMeUJY2KtDLORNL/8xiiPVlnWMOW4k9XZzQ3ZDA=="
+        arch="x86_64"
+        length="63226382"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.0</title>
       <pubDate>Fri, 01 May 2026 17:13:40 +0000</pubDate>
       <description><![CDATA[
