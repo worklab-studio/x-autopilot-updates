@@ -6,6 +6,32 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.2</title>
+      <pubDate>Fri, 01 May 2026 20:08:51 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Settings tab cut from 17 sections to 3 essentials by default.</strong> New buyers were drowning in 95+ controls across 17 sections — Discovery+Relevance alone had 26 inputs. v2.0.2 hides 14 advanced sections behind a "▸ SHOW 14 ADVANCED SETTINGS" toggle. Default view now shows only: Voice / Posting / Engagement Limits — the 3 that matter for 95% of buyers.</li>
+      <li><strong>Toggle state persists in localStorage</strong> — power users who clicked "Show advanced" once never have to click again. New buyers stay in the simple view forever.</li>
+      <li><strong>Sign Out + Manage Billing UI in Settings.</strong> New SUBSCRIPTION panel at top of Settings tab shows current tier (Founder · lifetime / Trial / Pro / etc), LLM token usage with progress bar (yellow at 70%, red at 90%), renewal/trial-end date, and two buttons: <strong>MANAGE BILLING →</strong> (opens Lemon Squeezy customer portal for card update / plan change / cancel / invoices) and <strong>SIGN OUT</strong> (clears local subscription token; X cookies + voice profile + action history stay on Mac). Founder tier sees no billing button (no Lemon customer to manage).</li>
+      <li><strong>Founder buyers (existing $99 customers) unaffected by the simplification.</strong> Settings still works identically — just less visual noise unless you click "Show advanced".</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.2/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.2"
+        sparkle:edSignature="Fu/d3n6iL5KsqU44eIIzMp9BRKTeTJEGPu/g3Wdt1iyJrBrna15XgXUeAGybIc+6aJ7dT3LBtZ7wb/lBZz++Dw=="
+        arch="arm64"
+        length="62522353"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.2/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.2"
+        sparkle:edSignature="4BoAv/bPQz/ikAYzKGMdKDTmIRELZAIy2X6YYbqa0iT8D+g36M9bdd1PhWPXlOt1ukjteSZcf9R7z4rqhbRDBg=="
+        arch="x86_64"
+        length="63216770"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.1</title>
       <pubDate>Fri, 01 May 2026 19:22:00 +0000</pubDate>
       <description><![CDATA[
