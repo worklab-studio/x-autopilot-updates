@@ -6,6 +6,33 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.3</title>
+      <pubDate>Fri, 01 May 2026 20:59:31 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>Toggle hint walls replaced with hover-? tooltips.</strong> v2.0.2 still showed a 3-4 line description under every toggle (Auto-quote-tweet, Ground commentary, Require approval, etc) — that ate massive vertical space and made the page feel encyclopedia-dense. Now: each toggle is a single line with a small <code>?</code> icon; hover it for the full hint. Same information, ~70% less vertical space.</li>
+      <li><strong>Each essential section now has 2-3 named subgroups.</strong> Posting → Schedule / Active window / Automation. Engagement Limits → Actions per day / Pacing / Quote tweets. Voice → Identity / Product. Each subgroup has its own labeled divider so related fields read as one unit instead of one big horizontal blur.</li>
+      <li><strong>Bigger, brighter section titles + optional subtitles.</strong> Section titles went from tiny dim text (size 10, dim color) to readable size-13 normal-color text with optional one-line subtitle below (e.g. <em>"How much your agent does each day, and how fast it does it."</em>). Skim-readable.</li>
+      <li><strong>Timezone field shrunk from 4 lines to 2.</strong> Was: long IANA-format label + input + "Currently using Asia/Kolkata (auto-detected)..." sentence. Now: just <code>Timezone · Asia/Kolkata</code> with a <code>?</code> tooltip for the IANA format reminder.</li>
+      <li><strong>Tighter labels.</strong> "Daily replies" → "Replies", "Tweets per day" → "Tweets / day", "Active hours start" → "From", "Quote-tweet min likes (filter)" → "Min likes filter". Less to read, same meaning.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.3/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.3"
+        sparkle:edSignature="wDj1/B859UXXpuTr6yo0FzDmEmN3+wBBwgHAtcEKwfi/IjMez2Q2rCTltikCyIcMiIBBiT6yff5R2ShU2BtFCg=="
+        arch="arm64"
+        length="62526273"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.3/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.3"
+        sparkle:edSignature="s9Jiueb/DVs5xVKx2svkxKSVqChlF3/LXplltjyxmnhPPcydDFiIiddgKQ7c0Umg8m+5nzjGwx6CwTLshF20CQ=="
+        arch="x86_64"
+        length="63268344"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.2</title>
       <pubDate>Fri, 01 May 2026 20:08:51 +0000</pubDate>
       <description><![CDATA[
