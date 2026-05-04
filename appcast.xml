@@ -6,6 +6,32 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.4</title>
+      <pubDate>Mon, 04 May 2026 13:53:12 +0000</pubDate>
+      <description><![CDATA[
+    <ul>
+      <li><strong>FOLLOWER GROWTH chart removed.</strong> It was reading <code>followers</code> from the daily growth snapshot, but Twitter doesn't reliably expose follower count from a logged-in profile session — the chart sat at 0 forever for most buyers, and the empty state ("Growth data will appear here once the agent starts running") was misleading.</li>
+      <li><strong>Replaced with a live TODAY panel.</strong> 5 progress bars showing today's count vs daily cap for: Replies, Likes, Follows, Quote tweets, Tweets posted. Updates every few seconds alongside the rest of the dashboard. Fills throughout the day — gives buyers immediate visual proof the agent is working.</li>
+      <li>Each bar uses its action's brand color (blue for replies, pink for likes, purple for follows, green for quote tweets, yellow for tweets). Subtle glow when count > 0.</li>
+      <li>Added <code>quote_tweets</code> count + cap to <code>/api/stats</code> so the new bar populates correctly. Reads from the existing <code>daily_counts</code> table (<code>action_type='quote_tweet'</code>) and <code>engagement.daily_quote_tweets</code> config.</li>
+    </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.4/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.4"
+        sparkle:edSignature="sFMU1ysK63vAAKZXZTfgqHFQbaIxc0LR3EBYzybb4ZdmNHbxllm6ZWj1AA1sqhVHadrX9JwpR4vZ+VN/4PxmCw=="
+        arch="arm64"
+        length="62013923"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.4/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.4"
+        sparkle:edSignature="hh9TbjzmlDC4GF1czowxXPd/a3eg3qr9kDZ0NT001v0anjPdAvYjptdBWP0yMgptFSJp8olEghsiAGbJY7gYAQ=="
+        arch="x86_64"
+        length="62656731"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.3</title>
       <pubDate>Fri, 01 May 2026 20:59:31 +0000</pubDate>
       <description><![CDATA[
