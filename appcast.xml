@@ -6,6 +6,46 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.5</title>
+      <pubDate>Thu, 07 May 2026 17:04:02 +0000</pubDate>
+      <description><![CDATA[
+    ### Bugfix: agent was posting the same tweet over and over
+
+    In <code>ai/tweet_writer.py</code>, when the LLM generated 4 attempts that all failed the uniqueness check (35% Jaccard or 30% trigram overlap with recent 30 tweets), the fallback returned the **highest-scoring failed attempt anyway** — including ones flagged as "too similar to recent posts". Result: that near-duplicate joined the recent-30 buffer, so the next attempt had the same problem, and the buyer saw "the same tweet over and over with a slight twist."
+
+    **Fix**: when all attempts fail uniqueness, the agent now returns empty (skips the post) and tries again next session with a different topic seed. Better to skip than to spam.
+
+    Other failure modes (incomplete sentence, quality miss) still fall back to "best attempt" — those are LLM-output problems, not duplication problems.
+
+    ### Diagnostic: tells you WHY a reply session ended with 0 replies
+
+    When the niche filter drops every candidate (`Niche filter dropped 11, kept 0`), the agent now prints:
+    - The relevance threshold that was needed
+    - 2 sample dropped tweets with their scores  
+    - 3 specific fixes (widen niche, lower threshold, add hashtags)
+
+    When a whole reply session ends with 0 replies posted, the agent prints a 3-step priority list of likely causes (empty hashtags, narrow niche, strict threshold) — buyers self-diagnose instead of staring at an empty TODAY panel.
+
+    ### What stays unchanged
+
+    Engagement caps, schedule, action types, all UI — zero functional changes. Pure stability + signal upgrade.
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.5/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.5"
+        sparkle:edSignature="Kwqe65Wz6ap3YXMC4W6Gbptdoh1r+RsB4+oSokCFB9vci51iDrh4z6YTYuA3yUuCoZaMilVRxwTQFSoByvxMDA=="
+        arch="arm64"
+        length="58536254"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.5/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.5"
+        sparkle:edSignature="c2KNU6fEm8Bwp0ot2II9GZl7g1ihMan+G4uPqQvFa7EYSfMaauLBlyrVqHAIEbZtt7oNlNqVkqW47T7RvyMlDg=="
+        arch="x86_64"
+        length="62790951"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.4</title>
       <pubDate>Mon, 04 May 2026 13:53:12 +0000</pubDate>
       <description><![CDATA[
