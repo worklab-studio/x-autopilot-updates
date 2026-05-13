@@ -6,6 +6,45 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.7</title>
+      <pubDate>Wed, 13 May 2026 12:00:00 +0000</pubDate>
+      <description><![CDATA[
+### License-key activation — paste, click, done
+
+If you bought Lifetime, Pro, or Starter, your Lemon Squeezy receipt email has a license key. v2.0.7's onboarding screen now lets you paste it directly. No more "Free for 7 days" magic-link confusion when you've already paid.
+
+Click ACTIVATE → cloud validates the key with Lemon Squeezy → app unlocks instantly with your real tier. Error messages (invalid key, activation limit reached) surface verbatim so you know exactly what to fix.
+
+The free-trial magic-link path is still there for new users — it's now a secondary "New here?" card below the license-key entry.
+
+### Instant first launch — no more bouncing icon
+
+v2.0.6 had a 30-90 second delay the first time a fresh download was opened (icon bouncing in dock while macOS phoned Apple's servers to verify the app). v2.0.7 notarizes the DMG wrapper too, so Gatekeeper verifies offline. First launch is now instant.
+
+### Inherits all v2.0.6 fixes
+
+Stuck "QUOTA HIT" banner auto-clears via <code>reset_at</code> or 25h staleness fallback. Account-health pauses auto-resume after a 4h cooldown instead of waiting forever. BYOK fallback for Starter/Pro when cloud quota exhausts. Founder auto-claim disabled (was promoting free-trial users to free-forever). License gate in <code>main.py</code> actually blocks cancelled subscribers.
+
+### Cloud-side
+
+New endpoint <code>POST /v1/auth/license-claim</code> validates against Lemon Squeezy's licensing API, finds the right user by customer email, upserts the subscription tier, and issues a session token. Idempotent — re-claiming on the same Mac re-issues without double-counting.
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.7/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.7"
+        sparkle:edSignature="dhuJH7h9TzoftXk+gLITTAeA7sc2P3orlZS4gdIif/a6/gcvSTvNoVm5+RqA7d8ayhUI+F2hVBgH0kwuwqEvDg=="
+        arch="arm64"
+        length="62007908"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.7/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.7"
+        sparkle:edSignature="74AR1Lpxql1ViTH2Q3HkOAnJPmWKMod9i9BVa4C03tx0EQ9Ms+LJhPgvcoDMa+HftPmJ2jJqvzNhxybg4spHDg=="
+        arch="x86_64"
+        length="62643460"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.6</title>
       <pubDate>Wed, 13 May 2026 05:05:08 +0000</pubDate>
       <description><![CDATA[
