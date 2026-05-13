@@ -6,6 +6,57 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.6</title>
+      <pubDate>Wed, 13 May 2026 05:05:08 +0000</pubDate>
+      <description><![CDATA[
+### Fixed: stuck "Monthly LLM tokens used up" banner
+
+The QUOTA HIT banner had a self-imprisoning bug — once set, the in-memory flag was checked <em>before</em> every cloud call, so the call that would clear it never ran. The flag stuck even after the next month's quota actually reset.
+
+<b>Fix:</b> the flag now self-clears via the cloud-provided <code>reset_at</code> timestamp or a 25-hour staleness fallback. Stuck banners disappear on next launch.
+
+### Fixed: X flagged your account → agent paused for days
+
+When X shows a hard signal (rate-limit banner, captcha, forced re-auth), the agent correctly auto-pauses. But previously it waited forever for the user to manually unpause from the dashboard. X warnings often clear within hours; many users left the agent silent for days.
+
+<b>Fix:</b> account-health pauses now set a 4-hour cooldown. The scheduler auto-resumes when it elapses. If X is still warning, the next account-health check (every 30 min) re-pauses. Manual dashboard pauses keep the indefinite wait. The paused status line shows "auto-resume in NhMMm" so you can tell the agent's alive. Configurable via <code>X_AUTOPILOT_HEALTH_COOLDOWN_HOURS</code>.
+
+### BYOK fallback for Starter ($19) and Pro ($39) when cloud quota exhausts
+
+Hitting the monthly cloud-LLM cap used to mean the agent went silent until next month or until you upgraded. Now: if your <code>.env</code> has a real LLM key (Anthropic / OpenAI / Gemini / Vertex), the agent gracefully falls back to your key and keeps running. Automatic — no manual intervention.
+
+### Lifetime ($199) — proxy bypass
+
+Lifetime buyers were silently failing every LLM call because the Mac routed through the cloud proxy and the cloud rejected with 0-token quota. Fixed: <code>should_proxy_llm()</code> short-circuits for BYOK tiers, so Lifetime users bypass the proxy entirely and call their own provider directly.
+
+### License enforcement plugged
+
+The license gate in <code>main.py</code> was informational, not blocking — cancelled subscribers could keep running. Now: when the cloud reports <code>access_state</code> as <code>cancelled_expired</code> or <code>trial_expired</code>, the agent shows a native macOS "Subscription Inactive" dialog and refuses to launch.
+
+### Other improvements
+
+- Mac app cloud URL switched to <code>api.xautopilot.app</code> (Let's Encrypt cert, branded subdomain)
+- Scheduler timezone resolution — active-hours checks now run against your local IANA timezone instead of the server clock
+- Quote-tweet generation (<code>actions/quote_tweet.py</code>)
+- Watchlist sweep (<code>agent/watchlist.py</code>)
+- DM action path removed pending refactor
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.6/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.6"
+        sparkle:edSignature="gLnFq3rLZeMusGA/XkDsMNOnMP8Vfb/wRCuasf+acAwTunFw3X5Sm0uLhRT6BJGznzOAG8wnREEdvc5Hzu7cCw=="
+        arch="arm64"
+        length="61995897"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.6/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.6"
+        sparkle:edSignature="otOsRAiAFh4SREep2oTMAWjHTglG5CUTAbVy2yl5LJJuIfLyRVnLjtHsJnnKUf9OAx+v9PW46ABIIfWGbR3TCg=="
+        arch="x86_64"
+        length="62801172"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.5</title>
       <pubDate>Thu, 07 May 2026 17:04:02 +0000</pubDate>
       <description><![CDATA[
