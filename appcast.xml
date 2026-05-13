@@ -6,6 +6,71 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.9</title>
+      <pubDate>Wed, 13 May 2026 13:30:00 +0000</pubDate>
+      <description><![CDATA[
+### In-app voice profile builder — no more copy-pasting tweets
+
+Old: copy a long prompt → open Claude.ai → paste 50–100 of your own tweets → copy result → paste back. ~20 minutes per setup. New: open the Voice tab, click GENERATE.
+
+Mix any of four sources:
+<ul>
+<li><strong>Your tweets</strong> — auto-scraped from your X timeline via the agent's existing logged-in Chrome (or paste, or skip)</li>
+<li><strong>Reference accounts</strong> — up to 5 handles whose style you want to dial toward (<code>@rauchg @paulg @swyx</code>). The agent extracts patterns, not content.</li>
+<li><strong>Describe yourself</strong> — plain English. Highest-priority signal.</li>
+<li><strong>Fine-tune</strong> — anti-patterns, signature topics, length preference</li>
+</ul>
+
+Strict priority hierarchy in the prompt (description &gt; constraints &gt; references &gt; own tweets) so the LLM doesn't mash sources together. ~60–90s, costs ~$0.01–0.05 on your configured LLM key. Preview + edit before save.
+
+Old external-LLM path preserved behind an "Advanced" disclosure for users who'd rather not burn their in-app tokens on a one-time setup.
+
+### Dashboard auto-opens on first launch
+
+If you ever saw "icon keeps jumping in the dock but the app doesn't open" — this is the fix. The agent was running fine on <code>localhost:5001</code> but never opened a browser window. Now it auto-opens the dashboard when onboarding is needed, when the subscription state is inactive, or when a duplicate launch detects the existing instance.
+
+### UI cleanup across the dashboard
+
+<ul>
+<li><strong>Blank-page on fresh install fixed</strong> — rules-of-hooks violation in SubscriptionGate was tearing down the React tree on every first launch.</li>
+<li><strong>Activation celebration</strong> — license-key accepted now shows a glowing "You're on Lifetime" screen with tier perks instead of silently flipping into the dashboard.</li>
+<li><strong>AI Provider step has room to breathe</strong> — option cards widened from 160px to 230px, hints in mixed case with proper line-height, RECOMMENDED badge moved above the name.</li>
+<li><strong>Lifetime billing button stopped going nowhere</strong> — Lemon Squeezy doesn't provision a customer-portal URL for one-time orders. MANAGE BILLING is hidden for Lifetime/Founder; replaced with a one-line caption explaining the receipt is in their email.</li>
+<li><strong>Duplicate SUBSCRIPTION panel removed</strong> — Settings tab was rendering a second subscription block under the LLM keys form.</li>
+<li><strong>Trial users see sharper copy at 100% quota</strong> — "Upgrade to Pro or Starter to continue, or add your own LLM key" instead of the misleading "wait until next month".</li>
+</ul>
+
+### DMG installer cleanup
+
+<ul>
+<li>Dropped <code>Open My Chrome.command</code> — dev leftover that looked like a random text file to buyers.</li>
+<li>Fixed a long-standing <code>create-dmg</code> silent crash (pre-created <code>Applications</code> symlink collided with <code>--app-drop-link</code>), so the DMG layout is now the proper styled two-icon installer instead of the ugly <code>hdiutil</code> default.</li>
+</ul>
+
+### Cloud-side (deployed earlier)
+
+<code>tier='lifetime'</code> Postgres enum value added (every Lifetime activation was crashing without it). <code>/v1/customer/portal-url</code> returns clean 404 with a helpful message for one-time orders instead of confusing 502.
+
+### Upgrade path
+
+Auto-update via <code>agent/updater.py</code>. Existing v2.0.6 / v2.0.7 / v2.0.8 installs see the v2.0.9 banner on their next updater check (within 24h). DMG signature stapled — first launch is instant, no Gatekeeper bouncing.
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.9/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.9"
+        sparkle:edSignature="bmua4co9FmRelw274ZwcUuu0yI1vqtpRGJSC6sFHDY76rP59hqC1PmwwxS5J93ShdagGh4BAQAz2O4PjeYKrDA=="
+        arch="arm64"
+        length="55201661"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.9/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.9"
+        sparkle:edSignature="+ptCb1ZD7s0r2fzMb+fJz7dtL+pCqhqnvVvDJXfQUYJFDGff/GCSQm8Gu4KFTFe0i2lTILR9UDYgyMGojHxfCw=="
+        arch="x86_64"
+        length="54520057"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.8</title>
       <pubDate>Wed, 13 May 2026 12:40:00 +0000</pubDate>
       <description><![CDATA[
