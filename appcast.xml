@@ -6,6 +6,50 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.8</title>
+      <pubDate>Wed, 13 May 2026 12:40:00 +0000</pubDate>
+      <description><![CDATA[
+### Settings → License panel for Pro and Starter buyers
+
+Open Settings and you now see your subscription state right at the top. Tier (Lifetime / Pro / Starter), the email your account is bound to, and a colour-coded status badge — ACTIVE, TRIAL, PAYMENT FAILED, ENDING SOON, ACCESS REVOKED, TRIAL ENDED.
+
+For Pro and Starter, the panel also shows your monthly LLM token meter (usage / cap, with a coloured bar that turns yellow at 80% and red at 95%). Lifetime users don't see the meter — that tier is BYOK so usage is unlimited from the app's perspective.
+
+### Manage billing without leaving the app
+
+Two new actions on the panel:
+
+- **MANAGE BILLING** opens the Lemon Squeezy customer portal in a new tab. Cancel, update card, change plan. Only renders if your tier has a payment account.
+- **SIGN OUT** clears your local subscription token, freeing this Mac as an activation slot. Useful when moving to a new machine. Comes with a confirm dialog that makes the distinction with "cancel subscription" explicit — signing out doesn't cancel.
+
+### Period dates surface inline
+
+The panel shows what's actually scheduled: when the trial ends, when the next renewal hits, or — if you've cancelled — when access ends and the grace period closes. <code>past_due</code> gets a "Last payment failed" warning prompting you to open the portal.
+
+### Why now
+
+Before v2.0.8, Pro and Starter buyers had no in-app way to check their state, see their token usage, or get to the billing portal. The only path was searching their inbox for the original Lemon Squeezy email. This panel makes all of it one click.
+
+### What's unchanged
+
+No backend changes — the panel reads from <code>/api/cloud/status</code>, <code>/api/cloud/portal</code>, and <code>/api/cloud/sign-out</code>, all of which existed already. Pure UI surface added to existing endpoints.
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.8/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.8"
+        sparkle:edSignature="kp48yaZPxnlZXbvsqa2ERSu4kmKNRk84ThiZY9oeuB41WJi6fowSIypd3g37CR9P0p68dlugKAcc65M3wJd6Bg=="
+        arch="arm64"
+        length="62009171"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.8/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.8"
+        sparkle:edSignature="ebKbSdoAzwn0ijke7ig5BDzLUQFI3q5OfuUNpRZvMb6+58kOw/a+mD+GS+BEfAaCOwWDel5Z7Y2duTE4qbkZCA=="
+        arch="x86_64"
+        length="62660316"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.7</title>
       <pubDate>Wed, 13 May 2026 12:00:00 +0000</pubDate>
       <description><![CDATA[
