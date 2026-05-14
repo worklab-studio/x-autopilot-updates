@@ -6,6 +6,49 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.10</title>
+      <pubDate>Thu, 14 May 2026 13:00:00 +0000</pubDate>
+      <description><![CDATA[
+### Auto-respawn when Chrome dies
+
+If the agent's Chrome instance gets killed for any reason — you closed the window by reflex, the Mac slept and the WebSocket dropped, Chrome itself crashed — the agent now relaunches itself within a couple seconds. Before this release, it logged "Browser connection lost" and just exited, leaving buyers to find a dead agent in the morning after an overnight run.
+
+Pre-restart it kills any chrome_profile-locked process and clears Singleton lock files (same prep <code>run_forever.sh</code> does), so the new instance launches cleanly without a "Chrome is already running" wall.
+
+### Guardrails
+
+Not an unbounded restart loop:
+
+<ul>
+<li>Only auto-respawns in the installed <code>.app</code>. Dev runs are unchanged.</li>
+<li>Skips the respawn if you clicked <strong>QUIT</strong> in the dashboard — we don't fight a user who wanted out.</li>
+<li>If 3+ respawns happen in any 5-minute window, the agent gives up. Something is fundamentally broken at that point and an unbounded loop would just burn battery. Manual relaunch resets the counter.</li>
+</ul>
+
+### What persists across the respawn
+
+Everything that matters: Twitter cookies, license token, voice profile, action history, today's counters. The respawn happens at the .app process level — <code>~/Library/Application Support/X-Autopilot/data/</code> is untouched.
+
+### Upgrade path
+
+Auto-update via <code>agent/updater.py</code>. Existing v2.0.6 through v2.0.9 installs see the v2.0.10 banner on their next updater check (within 24h). DMG signature stapled — first launch is instant.
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.10/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.10"
+        sparkle:edSignature="Epkm6I5lkS3Rh+2gU2ikx8+p6pumhRznkwKH9TmXKblnEWazYWWeXGMCbMK4vnxj55PcuYdWZrBKsFY+8atDDg=="
+        arch="arm64"
+        length="55196956"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.10/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.10"
+        sparkle:edSignature="L4Qj8yORZhCt3YUZISFDqx2dKWvAFGxf2idM+Bncus79HH5h+UybzT4nu5f2x1yAE5LzGPJQTiJZycKHYE6YBw=="
+        arch="x86_64"
+        length="54527886"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.9</title>
       <pubDate>Wed, 13 May 2026 13:30:00 +0000</pubDate>
       <description><![CDATA[
