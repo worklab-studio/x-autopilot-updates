@@ -6,6 +6,49 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.11</title>
+      <pubDate>Fri, 15 May 2026 11:00:00 +0000</pubDate>
+      <description><![CDATA[
+### Bot-fingerprint hardening — five layers fixed
+
+Buyers were reporting X showing the "we think you're automated" banner mid-session, which auto-pauses the agent. This release closes the deepest bot-detection signals identified by a systematic audit.
+
+<ul>
+<li><strong>URL bot-signals dropped</strong> — search URLs no longer leak <code>min_faves:50</code> operator or <code>src=typed_query</code>. Hashtag searches route through <code>/hashtag/&lt;topic&gt;</code> (mimics clicking a hashtag in a tweet). Engagement filtering moved client-side.</li>
+
+<li><strong>Action-type-aware delays</strong> — before, every gap between actions was uniform 60-180s regardless of action type. Now replies wait 120-600s, likes 20-80s, follows 15-60s. Plus 5-10% chance per action of taking a 5-20min "rabbit hole" dwell.</li>
+
+<li><strong>47 openers, sliding-window dedup</strong> — was 16 openers with a soft cap. New list has 47, with strict "no non-empty opener may repeat within last 20 replies". Empties still ~25-30% to match casual-Twitter no-opener norms.</li>
+
+<li><strong>Multi-zone click offsets</strong> — clicks no longer always near centre (a known Puppeteer fingerprint). New distribution: 40% centre, 25% upper-left, 15% lower-right, 10% broad scatter, 10% edge-clip.</li>
+
+<li><strong>Variable typing speed by character class</strong> — uniform 20-70ms per keystroke replaced with per-class ranges (space 60-220ms thinking pause, common consonants 10-40ms, end-of-sentence 80-200ms, capitals get shift-key penalty). Plus 10% chance per word boundary of "burst mode": next 4-10 chars at 3× speed.</li>
+</ul>
+
+### What stays the same
+
+Daily caps, schedule, action types, all UI — zero functional changes. Pure stealth + reliability upgrade.
+
+### Upgrade
+
+Auto-update via the in-app updater (within 24h on existing installs).
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.11/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.11"
+        sparkle:edSignature="q6ox8ZAIki0cZV/5Kyq8Ff7EUWokI1EnpGCV6Lni9JVX1fFyuhdQwipkGcwc8qVtow3TASSabi7tmX70yhQhCw=="
+        arch="arm64"
+        length="55206863"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.11/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.11"
+        sparkle:edSignature="PfYsK2pctFIZsyrtOQAHZPO2Z68Q3eb7Oylww3vdj8RwSLhTnO7QQjmt4qdh27kg+BZAo8QXAROP2BzLx8cxDg=="
+        arch="x86_64"
+        length="54534230"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.10</title>
       <pubDate>Thu, 14 May 2026 13:00:00 +0000</pubDate>
       <description><![CDATA[
