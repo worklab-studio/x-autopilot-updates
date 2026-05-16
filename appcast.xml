@@ -6,6 +6,55 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.12</title>
+      <pubDate>Sat, 16 May 2026 12:45:00 +0000</pubDate>
+      <description><![CDATA[
+### Fix: "every relaunch asks me for my license key"
+
+Multiple buyers reported that closing and reopening the app dropped them back on the activation screen — even after correctly activating their license. Confirmed root cause, fixed end-to-end.
+
+### The bug
+
+The cloud's subscription tokens had a 12-hour TTL but no refresh mechanism. After 12 hours every paid buyer hit a 401 on their next license check → the Mac eagerly cleared the local token → activation screen on the next launch. Repeat indefinitely.
+
+### Cloud-side (helps all earlier versions immediately)
+
+<ul>
+<li><strong>Token TTL: 12 hours → 90 days.</strong> Every existing buyer's token now lasts 3 months instead of half a day. The "every relaunch" loop is broken for everyone, including v2.0.10 and v2.0.11 users, without needing this update.</li>
+<li><strong>/v1/auth/me returns a refreshed subscription_token</strong> in every response.</li>
+</ul>
+
+### Mac-side (v2.0.12)
+
+<ul>
+<li><strong>Auto-save the refreshed token.</strong> The dashboard polls cloud status every 5 seconds while open; v2.0.12 saves the rolling refreshed token from each response. Net effect: the token is essentially immortal while the app is in regular use.</li>
+<li><strong>Stop nuking the token on a single 401.</strong> Old behaviour was eager — one 401 wiped the local token, even if it was a transient cloud blip or clock skew. v2.0.12 logs the 401 and retries on the next call. Genuine subscription cancellation comes through as 402 (PaymentRequired), not 401, and that path still hard-blocks correctly.</li>
+</ul>
+
+### Net behaviour
+
+Before: paid buyer activates → 12hr later, every relaunch shows "Paste your license key". After: activate once, app remembers indefinitely. Activation screen only appears for fresh installs, explicit SIGN OUT, or cancelled subscriptions.
+
+### Upgrade
+
+Auto-update via the in-app updater (within 24h on existing installs).
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.12/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.12"
+        sparkle:edSignature="uciXg5jrf408TIP5KqqVJzudevpYJJWo8UbN9dGQj2gGWklm7m+1eMCHixUbJV7AV0TUGsYIeV371hpV064qDQ=="
+        arch="arm64"
+        length="55206765"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.12/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.12"
+        sparkle:edSignature="sCbfEZsC2+FKRrPsMEpH9L8twCKZimTNy+XKRNZQL9mEs437d9Dz+tQ1BmFsj9pKKWrNEv8/otB/16YzMcUyBg=="
+        arch="x86_64"
+        length="54534577"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.11</title>
       <pubDate>Fri, 15 May 2026 11:00:00 +0000</pubDate>
       <description><![CDATA[
