@@ -6,6 +6,25 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.15</title>
+      <pubDate>Thu, 05 Jun 2026 14:40:00 +0000</pubDate>
+      <description><![CDATA[
+### Fix morning-session crash loop
+
+Some users saw the agent rapidly cycle through short sessions ("stuck in a loop") doing little work.
+
+Cause: when a morning session generated its daily deep-dive thread, it picked a topic from your Content Topics list. If that list was empty (the default on a fresh install), the pick crashed, which killed the whole session before it did real work. Because the crash happened before the "thread done today" marker was written, the next session retried the same crash, over and over. Afternoon and evening sessions were never affected.
+
+Fixes: empty Content Topics now falls back to defaults instead of crashing; thread generation is isolated so a failure is logged and skipped while the session continues with replies/likes/follows; and a noisy token-refresh log race from v2.0.12 is fixed.
+
+Tip: set Content Topics in Settings for the best threads, but you no longer need to for the agent to run safely.
+
+Auto-update via the in-app updater (within 24h).
+      ]]></description>
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.15/X-Autopilot-mac-arm64.dmg" sparkle:version="2.0.15" sparkle:edSignature="U2XSqUB7t9U6IF6vJAvkB14QFLfBt/Tz4oKCg4Hq64l1gu3ZGcY24ty/v1OSISRiER00APtja5Y1YooNkIiPDQ==" arch="arm64" length="55211601" type="application/octet-stream" />
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.15/X-Autopilot-mac-x86_64.dmg" sparkle:version="2.0.15" sparkle:edSignature="e7ikcXDKuIHiT2yqEZz0dWHGG1beDVZHXyrhKU7ZHEtyOsZUFTatalMDkxDk4RgcDNQ/PPyF9fZALPmEH5VVBA==" arch="x86_64" length="54534170" type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.14</title>
       <pubDate>Thu, 05 Jun 2026 12:30:00 +0000</pubDate>
       <description><![CDATA[
