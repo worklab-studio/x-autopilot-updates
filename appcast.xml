@@ -6,6 +6,21 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.16</title>
+      <pubDate>Thu, 05 Jun 2026 16:20:00 +0000</pubDate>
+      <description><![CDATA[
+### Payment provider: Dodo Payments
+
+X-Autopilot now bills through Dodo Payments instead of Lemon Squeezy (both are Merchants of Record — they handle global tax/VAT). A behind-the-scenes switch; nothing about how you use the app changes.
+
+The in-app activation screen and billing panel now reference Dodo Payments (your license key arrives in a Dodo receipt email after purchase). New website purchases go through Dodo checkout.
+
+Your existing license keeps working. Pricing is identical (Starter $19/mo, Pro $39/mo, Lifetime $199). Auto-update via the in-app updater.
+      ]]></description>
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.16/X-Autopilot-mac-arm64.dmg" sparkle:version="2.0.16" sparkle:edSignature="JCTgNVpBNFCbh+0ppK3FxMvRAv15c73IKjsgLzM2anpXxG5N7wEYcck/NbrmWZdIa81vNcaOcSaUA+GGy/8WDQ==" arch="arm64" length="55212343" type="application/octet-stream" />
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.16/X-Autopilot-mac-x86_64.dmg" sparkle:version="2.0.16" sparkle:edSignature="ImYisRL7Q8QFm7sW5KLF+39SJb85VDbSgOh75Z9YDXk3HVdM24cbYz0+xwAcsXG9rYr9OqgwgK2gcAq9YCYJCw==" arch="x86_64" length="54534153" type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.15</title>
       <pubDate>Thu, 05 Jun 2026 14:40:00 +0000</pubDate>
       <description><![CDATA[
