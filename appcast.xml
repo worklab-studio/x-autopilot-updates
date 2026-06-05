@@ -6,6 +6,47 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.13</title>
+      <pubDate>Thu, 05 Jun 2026 12:10:00 +0000</pubDate>
+      <description><![CDATA[
+### Voice profile generation starts immediately
+
+Fixes the most-reported Voice Lab issue: clicking "Generate Voice Profile" while the agent was mid-session left you staring at "waiting for agent…" for many minutes.
+
+### What was wrong
+
+The voice generator shares the agent's browser, so it was only checked BETWEEN sessions. But a turbo/aggressive session runs 15-35 minutes. A mid-session click sat in the queue until the whole session finished — one reported case waited 35 minutes (queued 11:07, started 11:42).
+
+### The fix
+
+The agent now checks for a pending voice request <strong>between every action</strong> and <strong>during between-session sleeps</strong>, so a mid-session click is served within seconds of the current action completing. The check is a single file-existence test — zero cost when nothing is queued.
+
+The "waiting for agent…" message is also clearer now: it tells you the agent is finishing its current action and shows how long it's been queued, instead of looking frozen.
+
+### Unchanged
+
+Generation quality, the 4-source builder (your tweets + reference accounts + self-description + fine-tune), pacing, daily caps — all identical. Pure responsiveness fix.
+
+### Upgrade
+
+Auto-update via the in-app updater (within 24h on existing installs).
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.13/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.13"
+        sparkle:edSignature="cNeU4c2BHXP1//Usw1+vSxPFRm9SHiBzXZcxi6D+5f1RrZQTePJm0UbfIX/S8S+EiOIcK+h7uQkR6NuW0iD1CQ=="
+        arch="arm64"
+        length="55213903"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.13/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.13"
+        sparkle:edSignature="oIE5zUG//AVp5fkpWgNfSq3xad8ruTF8cbyngUj2YwfyF8WLbsyEW7pMoLmCu4+oxa/+Iz/INLzL1UeDniR6BQ=="
+        arch="x86_64"
+        length="54537051"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.12</title>
       <pubDate>Sat, 16 May 2026 12:45:00 +0000</pubDate>
       <description><![CDATA[
