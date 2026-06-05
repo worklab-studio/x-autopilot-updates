@@ -6,6 +6,35 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.14</title>
+      <pubDate>Thu, 05 Jun 2026 12:30:00 +0000</pubDate>
+      <description><![CDATA[
+### Product replies always link your domain
+
+The product-mention promotions feature now reliably includes your product's domain (e.g. ampliflow.in, xautopilot.app) in every reply.
+
+Previously the prompt asked the AI to include the URL but it occasionally dropped it when the value-add ran long. Now it's deterministic: the agent gets the bare domain, is told to include it as a non-negotiable rule in plain text, and a post-generation guarantee check appends it if missing (or normalizes a full https:// form to the clean bare domain). 100% of product replies now carry your domain, written like a builder casually sharing their work.
+
+Unchanged: the 4/day product-reply cap, keyword matching, and value-first behavior.
+
+Auto-update via the in-app updater (within 24h).
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.14/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.14"
+        sparkle:edSignature="E+e+pSno5Xz00f8czAjYUyXBSXfjqcyxVgYojIEU1MnvXtXbocHNGPC1HwEAPorb0qW+ZI0p72gssvrlWfbyAw=="
+        arch="arm64"
+        length="55216637"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.14/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.14"
+        sparkle:edSignature="BXg+6Fg/FVTwAqUhnH6zCmaa4sf7NYgSOhwIVc4V7HAFSQUrSOaMEWMNawddPg4b6QN/URDOtezql/nD7sRACw=="
+        arch="x86_64"
+        length="54536630"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.13</title>
       <pubDate>Thu, 05 Jun 2026 12:10:00 +0000</pubDate>
       <description><![CDATA[
