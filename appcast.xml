@@ -6,6 +6,25 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.17</title>
+      <pubDate>Sun, 07 Jun 2026 17:55:00 +0000</pubDate>
+      <description><![CDATA[
+### Bugfix: quote-tweets ignored the auto-post / manual-approval switch
+
+When you turned <strong>auto-post off</strong> (manual approval), the agent correctly held your generated tweets, threads, and promos in the approval queue — but <strong>quote-tweets still posted directly to your timeline</strong>. They were governed only by their own quote-tweet toggle, so "auto-post off" didn't stop them. That's why a quote-tweet could still appear on your profile after you'd disabled auto-post.
+
+<strong>Fix:</strong> quote-tweets now respect the master auto-post switch. With manual approval on, the agent skips quote-tweeting entirely (quote-tweets ride a fresh trending post, so holding them for later approval would only post a stale take). Turn auto-post on to let quote-tweets flow again, or leave the quote-tweet toggle off to control it independently.
+
+Auto-generated tweets, threads, and promos already honored this switch — this closes the one path that bypassed it.
+
+### What stays unchanged
+
+Replies, likes, follows, engagement caps, schedule, and all UI — zero other changes.
+      ]]></description>
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.17/X-Autopilot-mac-arm64.dmg" sparkle:version="2.0.17" sparkle:edSignature="4go1p1k7ehgI45ZSMDh0HbWVN+MFbJjfzdriuGe/GHpQNYFtMIZtfP2dyr+7f83bWRRBFIT6T43CKaMd1FTDDw==" arch="arm64" length="55212879" type="application/octet-stream" />
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.17/X-Autopilot-mac-x86_64.dmg" sparkle:version="2.0.17" sparkle:edSignature="xkEDf7aDKVDetKGwfexPEdoTbmAsVunm/E6CX6ONddvI9PkPW5lz27rmikzNiNJUbsZYvddDpnJ5uH8SFjdPBg==" arch="x86_64" length="54534285" type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.16</title>
       <pubDate>Thu, 05 Jun 2026 16:20:00 +0000</pubDate>
       <description><![CDATA[
