@@ -6,6 +6,25 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.18</title>
+      <pubDate>Tue, 09 Jun 2026 13:20:00 +0000</pubDate>
+      <description><![CDATA[
+### Survive an LLM outage instead of crash-looping
+
+If your AI provider runs out of credits or quota (or has an outage), <em>every</em> session fails the moment it tries to think — and the agent used to retry every ~60 seconds for hours, doing no work and ballooning the log. Now it detects a provider-down condition and backs off on an escalating timer (2 → 4 → 8 → 16 → up to 30 min) with a visible countdown. The instant the provider recovers — e.g. you top up credits — the agent resumes on its next retry. Hit <strong>Skip Break</strong> in the overlay to retry immediately.
+
+### Removed a retired model from the fallback chain
+
+Google retired <code>gemini-1.5-pro</code>. It sat at the end of the Gemini fallback list, so any time the whole chain failed, the error you saw was a misleading "model not found" instead of the real cause. Replaced with the current <code>gemini-2.5-flash-lite</code>.
+
+### What stays unchanged
+
+Engagement, schedule, voice, and all UI — zero functional changes. Pure resilience.
+      ]]></description>
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.18/X-Autopilot-mac-arm64.dmg" sparkle:version="2.0.18" sparkle:edSignature="R3vdtZwLv4SeMD1ASoDmIyOso3Iomq8J+23RKJzNhnL9yR/0n9Q0ivFLUvxX29eR7RSQ1qM66tl+9NpnTYJYCw==" arch="arm64" length="65803554" type="application/octet-stream" />
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.18/X-Autopilot-mac-x86_64.dmg" sparkle:version="2.0.18" sparkle:edSignature="UoZQUhBGTv4uv6j6bnV00CbPCyMAd623cI6bbm0QNx+TOgUWmkMqMEm1kB+XsOuzVJfHVmWRtYmHj7+l4Or6Bw==" arch="x86_64" length="62663562" type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.17</title>
       <pubDate>Sun, 07 Jun 2026 17:55:00 +0000</pubDate>
       <description><![CDATA[
