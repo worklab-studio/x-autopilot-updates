@@ -6,6 +6,25 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.19</title>
+      <pubDate>Wed, 11 Jun 2026 00:46:00 +0000</pubDate>
+      <description><![CDATA[
+### You can now run the agent on OpenAI
+
+If you set <code>LLM_PROVIDER=openai</code> with an <code>OPENAI_API_KEY</code>, the agent previously crashed with <code>__init__() got an unexpected keyword argument 'proxies'</code> — the bundled OpenAI library was too old for its HTTP layer. Upgraded it, so OpenAI (e.g. the cheap <code>gpt-4.1-nano</code>) now works end to end. Gemini is unchanged and still the default.
+
+### Carries the v2.0.18 resilience fixes
+
+If you're updating from before, you also get: an escalating back-off when your AI provider is down (no more 60-second crash-loop / log flooding), and the removal of the retired <code>gemini-1.5-pro</code> from the Gemini fallback chain.
+
+### What stays unchanged
+
+Engagement, schedule, voice, and all UI — pure provider/stability work.
+      ]]></description>
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.19/X-Autopilot-mac-arm64.dmg" sparkle:version="2.0.19" sparkle:edSignature="j2OwqGk5KD8jSWmApXhFECPO9AGqBKzoRjhe+mWvz4OpWLoOWu5R+4rVbX0iGhJSN/Kynrx/Fw9W4hk1z3uyBQ==" arch="arm64" length="55719323" type="application/octet-stream" />
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.19/X-Autopilot-mac-x86_64.dmg" sparkle:version="2.0.19" sparkle:edSignature="eaF0scJhJNbemsKZFsyvz43TvbGJfD8BYQrsByCPCLTI8qzIuEJnrd2N59TQO+6ZPnxoS7xRf0eZuBzjIUVYBw==" arch="x86_64" length="55065790" type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.18</title>
       <pubDate>Tue, 09 Jun 2026 13:20:00 +0000</pubDate>
       <description><![CDATA[
