@@ -6,6 +6,25 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.20</title>
+      <pubDate>Wed, 11 Jun 2026 16:28:00 +0000</pubDate>
+      <description><![CDATA[
+### Memory no longer balloons on long runs
+
+A few people on 8GB Macs saw the agent and its Chrome climb past 10GB over days of 24/7 running and freeze the machine. This caps it: Chrome now runs with a hard disk-cache and JS-heap ceiling, and a memory watchdog does a clean self-restart if the agent and Chrome ever cross a limit (default 4GB). The log file also rotates now, and the noisy dashboard request logging is silenced.
+
+### New tweets and threads post reliably again
+
+X changed the compose window, so the agent could write a tweet but never find the Post button and just kept retrying (replies were unaffected). Posting is now DOM-proof: it tries the button, then the button by its visible label, then the Cmd+Enter shortcut, and confirms the tweet actually went out by watching the compose window close. Threads got the same fix.
+
+### What stays unchanged
+
+Engagement, schedule, voice, promotions, and all UI. Pure stability.
+      ]]></description>
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.20/X-Autopilot-mac-arm64.dmg" sparkle:version="2.0.20" sparkle:edSignature="Hzroz3BlhxEi5itDASKpg0csLUQ9a9+j6SRvVbQTMYZqhOC6WonzBeKBzpl+fpRSXY86ZCeb9SiMm7pcMpi6Dg==" arch="arm64" length="55728131" type="application/octet-stream" />
+      <enclosure url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.20/X-Autopilot-mac-x86_64.dmg" sparkle:version="2.0.20" sparkle:edSignature="sw7p8MCCxE9QyRVY8HkF3JnzV629KIcEmcp3kWVrN4Q7XyUWLoi617Pqo3kcMogCrKh6zbpoCRDgaUtccpmzDA==" arch="x86_64" length="55069134" type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.19</title>
       <pubDate>Wed, 11 Jun 2026 00:46:00 +0000</pubDate>
       <description><![CDATA[
