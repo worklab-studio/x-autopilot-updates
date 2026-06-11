@@ -6,6 +6,49 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.22</title>
+      <pubDate>Thu, 11 Jun 2026 13:46:15 +0000</pubDate>
+      <description><![CDATA[
+    ### Big anti-detection overhaul (fewer bot challenges / blocks)
+
+    If X has been showing you "verify you're human" or blocking actions, this is the release to take. We audited the whole automation surface and fixed what actually trips detection:
+
+    - <strong>The browser now looks like your real Mac.</strong> The agent used to spoof a fake hardware fingerprint that changed every launch and even claimed to be a Windows PC with an NVIDIA card — on a Mac. That contradiction is a dead giveaway. It now presents your real, consistent Mac fingerprint (the most human signal there is).
+    - <strong>It sleeps at night.</strong> Running 24/7 with no quiet hours is one of the clearest bot tells. The agent now has an overnight rest window (default ~11pm–8am, with the edges varied a bit each day) and no longer runs around the clock.
+    - <strong>Human-scale daily volume.</strong> Action counts were escalating far past what a person does (90+ follows / 250+ likes a day). They're now capped to sustainable, human-plausible levels — follows especially — and the optimizer can no longer secretly push them back up.
+    - <strong>More natural pacing.</strong> "Turbo" speed mode is off, bursts are throttled so a session can't cram a whole day's actions into one hour, and the timing has more genuine variance (no metronome).
+    - <strong>Removed an in-page marker.</strong> A debugging cursor dot the agent drew on top of X has been removed — it was visible to X's own scripts.
+
+    <strong>Honest note:</strong> raw daily volume is the single biggest thing X measures, so lower detection and faster growth pull against each other. This release trades some peak speed for staying out of trouble — a suspended account grows at zero. You can tune the daily limits in Settings if you want to lean one way or the other.
+
+    ### New tweets and threads actually post now
+
+    If you had auto-post on, your own tweets would get written but never leave the queue — the agent kept retrying and sometimes posted near-duplicates. The tweet was <em>actually posting</em>, but the agent misread the result as "failed" (its check looked at the wrong thing on X's redesigned compose window) and tried again later. It now confirms a post the same way it confirms replies, which has always worked. Tweets post once, the queue advances, no duplicates. (Replies were never affected.)
+
+    ### Stability
+
+    Reverted an over-aggressive memory cap from v2.0.20 that could crash Chrome's tab mid-session on image-heavy scans (the 14GB memory balloon is still handled by the watchdog that cleanly restarts at 4GB). And fixed a restart race that could occasionally leave the agent stopped instead of coming back up — it now reliably self-heals after a crash or memory recycle.
+
+    ### What stays unchanged
+
+    Your voice, promotions, dashboard, and approval workflow. If you're on v2.0.20 or earlier, this is the one to take.
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.22/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.22"
+        sparkle:edSignature="bda3nQBNyIaxXuUkoweDNmB4z2Wwgdbvfhi4lQEuAjd0UA1NL/OkXEye3FQgZolUhtijl+1idpzAsMLdDEFODw=="
+        arch="arm64"
+        length="55731378"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.22/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.22"
+        sparkle:edSignature="3SIAQ8/880NoaF0Yk399U+iPFTmkf13npeDPcC4npq7VIZ2QkelQrRQtMOuZ5CROeCdtYaQkg55+ZYCdh65oBA=="
+        arch="x86_64"
+        length="55070503"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.20</title>
       <pubDate>Wed, 11 Jun 2026 16:28:00 +0000</pubDate>
       <description><![CDATA[
