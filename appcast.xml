@@ -6,6 +6,34 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.23</title>
+      <pubDate>Thu, 02 Jul 2026 09:05:15 +0000</pubDate>
+      <description><![CDATA[
+    ### Your first reply lands in minutes
+    On a fresh setup the agent no longer sits through a full discovery + tweet-generation pass before its first reply. It sends one right away, so you see it working within minutes of finishing setup instead of waiting for the first full session.
+
+    ### Even more human mouse movement
+    The cursor now travels to each click along a natural curved path (with a little hand-tremor and the occasional pause) instead of a dead-straight line — one less mechanical tell for X's behavioral checks. (The cursor is intentionally invisible on screen; drawing it would itself be a giveaway to X.)
+
+    ### Product mentions that actually get seen (Pro)
+    If you have the agent mention a product, it used to paste your link into every mention — and X quietly buries any reply that contains a link, so those mentions got almost no reach. Now it mentions the product by <strong>name</strong> and lets your profile and bio carry the link, so the reply stays visible. It's also far pickier about <em>when</em> to bring a product up: it needs a genuine topic match (two whole-word keywords) and skips giant accounts, so mentions land in relevant conversations instead of looking spammy.
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.23/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.23"
+        sparkle:edSignature="vQNRhzks3l+WauG22fWfS/rfkXjBs+HlGQp2qLY05dxKUi12v9Cf2PKk4JNJR9fdUBGVPJ5aubx1KYTCh9LFAQ=="
+        arch="arm64"
+        length="55735168"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.23/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.23"
+        sparkle:edSignature="sPDeL+RvINEkTgIVQOlSMXt4Lz89bHO11k7V538xNwAz9MmX4rXoQeec7Oido3IMDjrBJjBWzT2aMTE1D3vkAA=="
+        arch="x86_64"
+        length="55072484"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.22</title>
       <pubDate>Thu, 11 Jun 2026 13:46:15 +0000</pubDate>
       <description><![CDATA[
