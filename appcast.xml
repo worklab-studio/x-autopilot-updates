@@ -6,6 +6,32 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.24</title>
+      <pubDate>Sun, 26 Jul 2026 18:22:25 +0000</pubDate>
+      <description><![CDATA[
+    ### Run around the clock, if you want to
+    Settings > Posting > Active window has a new <strong>Work at night</strong> switch. Turn it on and the agent ignores the active-hours window and keeps working overnight instead of sleeping.
+
+    It does not simply run flat-out at 3am. Between 1am and 7am the agent automatically shifts into a quieter mode: longer gaps between sessions, a much higher chance of taking a break, and one longer rest of 25-90 minutes at a different time each night. The result still has quiet patches, the way a real night owl's account does, rather than a perfectly even 24-hour pattern.
+
+    <strong>Honest note:</strong> an account that is active every hour of every day is easier to spot than one that goes quiet at night, and raw volume is still the thing X measures most. Leave this off if X has recently flagged or challenged your account. It is off by default.
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.24/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.24"
+        sparkle:edSignature="FVVfAqjYzzvj6tJm4GqWhgp6Ua5QmppZPxG9GVEwLgoAeJC5Mw4YKEXUK7eXMPdMgA0kZr9EZh89AhMUVnyLDA=="
+        arch="arm64"
+        length="55737175"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.24/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.24"
+        sparkle:edSignature="yBta/A+AQ1XoImsyuXWQdZeD0PpRnScYLbZmslFhL+SfikiRWDYMt4FyVDRTbtKj9Nc2ALobZfyXm7WPTSu2CQ=="
+        arch="x86_64"
+        length="55075541"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.23</title>
       <pubDate>Thu, 02 Jul 2026 09:05:15 +0000</pubDate>
       <description><![CDATA[
