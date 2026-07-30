@@ -6,6 +6,35 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.26</title>
+      <pubDate>Thu, 30 Jul 2026 20:48:30 +0000</pubDate>
+      <description><![CDATA[
+    ### See the mouse move
+    New setting in Settings > Interface: <strong>Show cursor</strong>. Turn it on and your Mac's actual pointer travels to each link and button along the same curved path the agent is using, so you can watch a session happen instead of staring at a window that looks frozen.
+
+    Until now the agent moved a mouse that macOS never drew. The movement was real and X received it, it was just invisible. This makes it visible without drawing anything on top of X - the page is untouched, which matters, because an overlay painted onto X is exactly the kind of thing X can detect.
+
+    <strong>Worth knowing:</strong> while this is on, the agent is using your actual pointer, so the Mac is awkward to use at the same time. Leave it off for normal unattended running and switch it on when you want to watch.
+
+    ### Less predictable overnight
+    The nightly rest break used to land at the same time on every copy of the app on a given day. It is now unique to your machine.
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.26/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.26"
+        sparkle:edSignature="07HMO5G4bWOILCYrKHCm8azb0F0VhmM+PXTZG4dPqS3pqY1EsC3s290qwKFrrSg7aplLqChrLPdUp9s2c55+Dw=="
+        arch="arm64"
+        length="55748255"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.26/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.26"
+        sparkle:edSignature="x8ELUST1JXksvrnBSPwfbUQLTuffkM++ZSmkue7lqZEfRyvuTgmoxdSExiaso3FDtl2b9USbmdYV44Uk569TDA=="
+        arch="x86_64"
+        length="55073902"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.25</title>
       <pubDate>Thu, 30 Jul 2026 20:27:19 +0000</pubDate>
       <description><![CDATA[
