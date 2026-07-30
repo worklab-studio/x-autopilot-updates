@@ -6,6 +6,36 @@
     <description>Auto-update feed for X-Autopilot Mac app</description>
     <language>en</language>
     <item>
+      <title>v2.0.25</title>
+      <pubDate>Thu, 30 Jul 2026 20:27:19 +0000</pubDate>
+      <description><![CDATA[
+    ### The agent now spends its replies where they get seen
+    We measured 1,500+ replies from real accounts and the difference between sources was enormous: replies found through high-engagement search averaged <strong>440 impressions</strong>, while replies to your target list averaged <strong>22</strong>. The agent was spending 40% of its effort on the low-reach sources and 5% on the best one.
+
+    That is now rebalanced. High-engagement search and X's own Creator "top posts" board lead every session, and the low-yield sources get what is left. Impressions are what actually turn into profile visits and followers, so this is the setting that moves growth.
+
+    ### Your follower count is finally recorded
+    The growth graph has been showing zero followers since launch while "following" tracked fine. The agent was reading the wrong link on the profile (X routes verified accounts to a different followers URL). Fixed, so the growth chart works and you can see whether changes help.
+
+    ### Better topic targeting
+    Replies are now scored against your niche keywords as well as your voice profile, and the agent skips posts with almost no engagement instead of replying into empty threads.
+      ]]></description>
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.25/X-Autopilot-mac-arm64.dmg"
+        sparkle:version="2.0.25"
+        sparkle:edSignature="0dP6HytDGxD+hDXakegtt5jqyOvRJiWg+yjH/1H291lX2MgGH0QTUcQqgXTv7ogMICgVVwCMb5qZXyqfpmR3Ag=="
+        arch="arm64"
+        length="55737988"
+        type="application/octet-stream" />
+      <enclosure
+        url="https://github.com/worklab-studio/x-autopilot-updates/releases/download/v2.0.25/X-Autopilot-mac-x86_64.dmg"
+        sparkle:version="2.0.25"
+        sparkle:edSignature="5mBoVxSREwNUDP5XyTHs5TnzMfS4TgoLpEnxWH/KMWu98u588FbYwKQgtznlFjJpAbjY24FMnfBiK0YCGNuXBQ=="
+        arch="x86_64"
+        length="55079495"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>v2.0.24</title>
       <pubDate>Sun, 26 Jul 2026 18:22:25 +0000</pubDate>
       <description><![CDATA[
